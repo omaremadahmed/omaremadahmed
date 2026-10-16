@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="20" viewBox="0 0 600 20" fill="none">
+  <!-- Left line -->
+  <line x1="0" y1="10" x2="270" y2="10" stroke="#1a2744" stroke-width="1" stroke-linecap="round"/>
+  <!-- Chess knight icon (simplified) -->
+  <g transform="translate(285, 2) scale(0.65)" fill="#3b82f6" opacity="0.7">
+    <path d="M4 22h14v2H4v-2zm2-2h10l1-4H5l1 4zm2.5-6h5L16 6c0-1.1-.9-2-2-2h-1.5l1 2h-2l-1-2H9C7.9 4 7 4.9 7 6l2.5 8z"/>
+  </g>
+  <!-- Right line -->
+  <line x1="330" y1="10" x2="600" y2="10" stroke="#1a2744" stroke-width="1" stroke-linecap="round"/>
+</svg>

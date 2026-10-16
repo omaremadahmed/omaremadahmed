@@ -1,8 +1,8 @@
 /* ==UserStyle==
-@name           GitHub Dark Architecture & Gold — Omar Emad
+@name           GitHub Dark Navy & Electric Blue — Omar Emad
 @namespace      github.com/omaremadahmed
-@version        2.0.0
-@description    A refined dark obsidian and metallic gold engineering theme for GitHub
+@version        3.0.0
+@description    A refined deep-navy and electric-blue engineering theme for GitHub. Covers profile, dashboard, repositories, code views, and navigation.
 @author         Omar Emad Ahmed
 @license        MIT
 ==/UserStyle== */
@@ -10,56 +10,393 @@
 @-moz-document domain("github.com") {
   /* ==========================================================================
      1. Design Tokens & Global CSS Variables
+     ==========================================================================
+     Color System:
+       Primary BG:    #060b18  (deep navy-black)
+       Surface:       #0c1425  (navy surface)
+       Surface Raised:#111d35  (elevated navy)
+       Inset:         #081020  (recessed navy)
+       Border:        #1a2744  (navy border)
+       Border Muted:  #142038  (subtle navy border)
+       Border Subtle: #182540  (mid navy border)
+       Accent:        #3b82f6  (electric blue)
+       Accent Hover:  #60a5fa  (light electric blue)
+       Text:          #e6edf3  (unchanged)
+       Text Muted:    #8b949e  (unchanged)
      ========================================================================== */
   :root,
   [data-color-mode="dark"],
   [data-dark-theme="dark"],
   [data-dark-theme="dark_dimmed"],
   [data-dark-theme="dark_high_contrast"] {
-    --canvas-default: #0a0a0a !important;
-    --canvas-overlay: #121212 !important;
-    --canvas-subtle: #141414 !important;
-    --canvas-inset: #0d0d0d !important;
-    
-    --border-default: #262626 !important;
-    --border-muted: #1c1c1c !important;
-    --border-subtle: #202020 !important;
-    
+    --canvas-default: #060b18 !important;
+    --canvas-overlay: #0c1425 !important;
+    --canvas-subtle: #111d35 !important;
+    --canvas-inset: #081020 !important;
+
+    --border-default: #1a2744 !important;
+    --border-muted: #142038 !important;
+    --border-subtle: #182540 !important;
+
     --fgColor-default: #e6edf3 !important;
-    --fgColor-muted: #9aa4b0 !important;
-    --fgColor-onEmphasis: #000000 !important;
-    
-    --accent-fg: #d4af37 !important;
-    --accent-emphasis: #d4af37 !important;
-    --accent-muted: rgba(212, 175, 55, 0.2) !important;
-    --accent-subtle: rgba(212, 175, 55, 0.08) !important;
-    
+    --fgColor-muted: #8b949e !important;
+    --fgColor-onEmphasis: #ffffff !important;
+
+    --accent-fg: #3b82f6 !important;
+    --accent-emphasis: #3b82f6 !important;
+    --accent-muted: rgba(59, 130, 246, 0.2) !important;
+    --accent-subtle: rgba(59, 130, 246, 0.08) !important;
+
     --success-fg: #3fb950 !important;
     --attention-fg: #d29922 !important;
     --danger-fg: #f85149 !important;
+
+    /* Custom tokens for consistent reuse */
+    --navy-surface: #0c1425;
+    --navy-raised: #111d35;
+    --navy-hover: #152545;
+    --blue-accent: #3b82f6;
+    --blue-accent-hover: #60a5fa;
+    --blue-glow: rgba(59, 130, 246, 0.15);
+    --blue-glow-strong: rgba(59, 130, 246, 0.3);
   }
 
   /* ==========================================================================
      2. Page Backgrounds & Canvas Surfaces
      ========================================================================== */
-  body, 
+  body,
   .application-main,
   .AppHeader,
   .footer,
-  #user-profile-frame {
-    background-color: #0a0a0a !important;
+  #user-profile-frame,
+  [data-turbo-frame="user-profile-frame"],
+  [data-color-mode] {
+    background-color: #060b18 !important;
     color: #e6edf3 !important;
   }
 
   /* Top Global Header */
   header.AppHeader,
-  .AppHeader-globalBar {
-    background-color: #0d0d0d !important;
-    border-bottom: 1px solid #262626 !important;
+  .AppHeader-globalBar,
+  .AppHeader-globalBar-start,
+  .AppHeader-globalBar-end {
+    background-color: #081020 !important;
+    border-bottom: 1px solid #1a2744 !important;
+  }
+
+  /* Header Search Bar & Navigation Items */
+  .header-search-button,
+  .header-search-input,
+  .AppHeader-search,
+  .AppHeader-search-whenRegular,
+  [data-target="qbsearch-input.inputButtonText"] {
+    background-color: #0c1425 !important;
+    border-color: #1a2744 !important;
+    color: #e6edf3 !important;
+  }
+
+  /* Global navigation items */
+  .AppHeader-context-item,
+  .AppHeader-globalBar a {
+    color: #e6edf3 !important;
   }
 
   /* ==========================================================================
-     3. Card Containers, Boxes, & Repository Panels
+     3. Personal Dashboard Styling
+     ========================================================================== */
+  /* Main Dashboard Wrapper */
+  #dashboard,
+  .feed-content,
+  turbo-frame#dashboard-feed,
+  div[data-target="feed-container"] {
+    background-color: #060b18 !important;
+  }
+
+  /* Dashboard Left Sidebar (Repositories) */
+  .dashboard-sidebar,
+  aside[aria-label="Repositories"],
+  div[aria-label="Repositories"] {
+    background-color: #060b18 !important;
+    border-right: 1px solid #142038 !important;
+  }
+
+  /* Dashboard Repository Filter Input */
+  #dashboard-repos-filter-left,
+  .dashboard-sidebar input[type="text"],
+  input[aria-label="Find a repository…"] {
+    background-color: #0c1425 !important;
+    border: 1px solid #1a2744 !important;
+    border-radius: 6px !important;
+    color: #e6edf3 !important;
+    padding: 6px 10px !important;
+  }
+
+  #dashboard-repos-filter-left:focus,
+  .dashboard-sidebar input[type="text"]:focus {
+    border-color: #3b82f6 !important;
+    outline: 2px solid rgba(59, 130, 246, 0.3) !important;
+    outline-offset: 1px !important;
+  }
+
+  /* Dashboard Repository List Items */
+  .dashboard-sidebar ul.list-style-none li a,
+  aside[aria-label="Repositories"] li a {
+    color: #e6edf3 !important;
+    border-radius: 6px !important;
+    padding: 4px 8px !important;
+    transition: background-color 0.15s ease, color 0.15s ease !important;
+  }
+
+  .dashboard-sidebar ul.list-style-none li a:hover,
+  aside[aria-label="Repositories"] li a:hover {
+    background-color: #111d35 !important;
+    color: #3b82f6 !important;
+  }
+
+  /* Dashboard Activity Feed Cards & Items */
+  div[data-target="feed-container"] article,
+  section[aria-label="Activity"] article,
+  .feed-item,
+  .feed-content article {
+    background-color: #0c1425 !important;
+    border: 1px solid #1a2744 !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
+    margin-bottom: 16px !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  div[data-target="feed-container"] article:hover,
+  section[aria-label="Activity"] article:hover,
+  .feed-content article:hover {
+    border-color: rgba(59, 130, 246, 0.35) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.55), 0 0 12px rgba(59, 130, 246, 0.08) !important;
+  }
+
+  /* Dashboard Right Sidebar (Explore & Announcements) */
+  aside[aria-label="Explore repositories"],
+  .dashboard-changelog,
+  .feed-right-sidebar {
+    background-color: #081020 !important;
+    border: 1px solid #1a2744 !important;
+    border-radius: 8px !important;
+  }
+
+  /* Dashboard Pagination & "Show more" button */
+  button.ajax-pagination-btn,
+  button[data-target="feed-container.moreButton"],
+  .dashboard-sidebar button.ajax-pagination-btn {
+    background-color: #111d35 !important;
+    border: 1px solid #1a2744 !important;
+    color: #8b949e !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+  }
+
+  button.ajax-pagination-btn:hover,
+  button[data-target="feed-container.moreButton"]:hover {
+    background-color: #152545 !important;
+    border-color: #3b82f6 !important;
+    color: #3b82f6 !important;
+  }
+
+  /* ==========================================================================
+     4. Personal Profile Page Styling
+     ========================================================================== */
+  /* Profile Sidebar / Vcard Details */
+  .vcard-fullname {
+    color: #f0f6fc !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  .vcard-username {
+    color: #8b949e !important;
+    font-weight: 400 !important;
+  }
+
+  .user-profile-bio {
+    color: #c9d1d9 !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Profile Vcard Links & Icons */
+  ul.vcard-details li.vcard-detail {
+    color: #9aa4b0 !important;
+  }
+
+  ul.vcard-details li.vcard-detail svg.octicon {
+    color: #3b82f6 !important;
+    fill: #3b82f6 !important;
+  }
+
+  ul.vcard-details li.vcard-detail a {
+    color: #e6edf3 !important;
+  }
+
+  ul.vcard-details li.vcard-detail a:hover {
+    color: #3b82f6 !important;
+    text-decoration: none !important;
+  }
+
+  /* Profile Avatar Subtle Ring */
+  .avatar-user {
+    border: 2px solid #1a2744 !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6), 0 0 20px rgba(59, 130, 246, 0.06) !important;
+  }
+
+  /* Edit Profile Button */
+  .js-profile-editable-area button,
+  .js-profile-editable-area .btn {
+    background-color: #111d35 !important;
+    border-color: #1a2744 !important;
+    color: #e6edf3 !important;
+    font-weight: 500 !important;
+    border-radius: 6px !important;
+  }
+
+  .js-profile-editable-area button:hover,
+  .js-profile-editable-area .btn:hover {
+    background-color: #152545 !important;
+    border-color: #3b82f6 !important;
+    color: #3b82f6 !important;
+  }
+
+  /* Achievement Badges Card */
+  .js-achievement-card,
+  a[data-hovercard-type="achievement"] {
+    border-color: #1a2744 !important;
+    transition: transform 0.2s ease, border-color 0.2s ease !important;
+  }
+
+  .js-achievement-card:hover,
+  a[data-hovercard-type="achievement"]:hover {
+    border-color: #3b82f6 !important;
+  }
+
+  /* Pinned Repositories Grid & Cards */
+  li.pinned-item-list-item {
+    border: none !important;
+    background: transparent !important;
+  }
+
+  li.pinned-item-list-item .Box {
+    background-color: #0c1425 !important;
+    border: 1px solid #1a2744 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease !important;
+  }
+
+  li.pinned-item-list-item .Box:hover,
+  li.pinned-item-list-item:hover .Box {
+    border-color: rgba(59, 130, 246, 0.45) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.55), 0 0 16px rgba(59, 130, 246, 0.1) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  .pinned-item-list-item .repo,
+  .pinned-item-list-item a.text-bold {
+    color: #3b82f6 !important;
+    font-weight: 600 !important;
+  }
+
+  .pinned-item-list-item .repo:hover,
+  .pinned-item-list-item a.text-bold:hover {
+    color: #60a5fa !important;
+  }
+
+  .pinned-item-desc {
+    color: #9aa4b0 !important;
+    line-height: 1.5 !important;
+  }
+
+  .pinned-item-meta {
+    color: #8b949e !important;
+  }
+
+  .pinned-item-meta a {
+    color: #8b949e !important;
+  }
+
+  .pinned-item-meta a:hover {
+    color: #3b82f6 !important;
+  }
+
+  /* Contribution Calendar & Activity Overview */
+  .js-yearly-contributions,
+  .js-calendar-graph,
+  .graph-before-activity-overview {
+    background-color: #081020 !important;
+    border: 1px solid #1a2744 !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
+  }
+
+  .ContributionCalendar-label {
+    color: #8b949e !important;
+    fill: #8b949e !important;
+  }
+
+  .ContributionCalendar-day[data-level="0"] {
+    fill: #0c1425 !important;
+    outline-color: rgba(59, 130, 246, 0.03) !important;
+  }
+
+  /* Contribution levels — blue gradient */
+  .ContributionCalendar-day[data-level="1"] {
+    fill: rgba(59, 130, 246, 0.25) !important;
+  }
+
+  .ContributionCalendar-day[data-level="2"] {
+    fill: rgba(59, 130, 246, 0.50) !important;
+  }
+
+  .ContributionCalendar-day[data-level="3"] {
+    fill: rgba(59, 130, 246, 0.75) !important;
+  }
+
+  .ContributionCalendar-day[data-level="4"] {
+    fill: #3b82f6 !important;
+  }
+
+  /* Activity Timeline Items */
+  .TimelineItem {
+    border-color: #1a2744 !important;
+  }
+
+  .TimelineItem::before {
+    background-color: #1a2744 !important;
+  }
+
+  .TimelineItem-badge {
+    background-color: #111d35 !important;
+    border: 1px solid #1a2744 !important;
+    color: #3b82f6 !important;
+  }
+
+  .TimelineItem-badge svg {
+    fill: #3b82f6 !important;
+  }
+
+  /* Profile README Master Card */
+  #user-profile-frame .Box,
+  [data-turbo-frame="user-profile-frame"] .Box {
+    background-color: #081020 !important;
+    border: 1px solid #1a2744 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.65) !important;
+  }
+
+  #user-profile-frame .Box-header,
+  [data-turbo-frame="user-profile-frame"] .Box-header {
+    background-color: #0c1425 !important;
+    border-bottom: 1px solid #1a2744 !important;
+  }
+
+  /* ==========================================================================
+     5. Card Containers, Boxes, & Generic Panels
      ========================================================================== */
   .Box,
   .border,
@@ -68,122 +405,155 @@
   .Subhead,
   .flash,
   .blankslate,
-  .pinned-item-list-item,
   .UnderlineNav {
-    background-color: #121212 !important;
-    border-color: #262626 !important;
+    background-color: #0c1425 !important;
+    border-color: #1a2744 !important;
   }
 
   .Box-header,
   .timeline-comment-header {
-    background-color: #161616 !important;
-    border-bottom-color: #262626 !important;
+    background-color: #111d35 !important;
+    border-bottom-color: #1a2744 !important;
   }
 
   .Box-row {
-    background-color: #121212 !important;
-    border-top-color: #202020 !important;
+    background-color: #0c1425 !important;
+    border-top-color: #182540 !important;
   }
 
   .Box-row:hover {
-    background-color: #171717 !important;
-  }
-
-  /* Profile README Master Card */
-  #user-profile-frame .Box {
-    background-color: #0d0d0d !important;
-    border: 1px solid #262626 !important;
-    border-radius: 8px !important;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.65) !important;
+    background-color: #111d35 !important;
   }
 
   /* ==========================================================================
-     4. Code Blocks, File Viewers & Diffs
+     6. Repository Page & File Views
      ========================================================================== */
-  pre, 
-  .blob-wrapper, 
+  /* Repository header & about section */
+  .BorderGrid-cell {
+    border-color: #1a2744 !important;
+  }
+
+  .BorderGrid-row {
+    border-color: #1a2744 !important;
+  }
+
+  /* Repository description */
+  .f4.my-3 {
+    color: #c9d1d9 !important;
+  }
+
+  /* Code Blocks, File Viewers & Diffs */
+  pre,
+  .blob-wrapper,
   .highlight,
   .markdown-body pre,
   .markdown-body code:not(pre code) {
-    background-color: #0d0d0d !important;
-    border-color: #222222 !important;
+    background-color: #081020 !important;
+    border-color: #1a2744 !important;
   }
 
   pre,
   .markdown-body pre {
-    border: 1px solid #262626 !important;
+    border: 1px solid #1a2744 !important;
     border-radius: 6px !important;
   }
 
   .markdown-body code:not(pre code) {
-    border: 1px solid #262626 !important;
+    border: 1px solid #1a2744 !important;
     padding: 0.2em 0.4em !important;
     border-radius: 4px !important;
     color: #e6edf3 !important;
   }
 
   /* File Tree & File Headers */
-  .js-navigation-item:hover {
-    background-color: #181818 !important;
+  .js-navigation-item:hover,
+  .react-directory-row:hover {
+    background-color: #111d35 !important;
+  }
+
+  /* Line numbers in code view */
+  .blob-num {
+    color: #3d5a8c !important;
   }
 
   /* ==========================================================================
-     5. Markdown Tables & Lists
+     7. Markdown Tables & Lists
      ========================================================================== */
   .markdown-body table tr {
-    background-color: #0f0f0f !important;
-    border-top: 1px solid #262626 !important;
+    background-color: #081020 !important;
+    border-top: 1px solid #1a2744 !important;
   }
 
   .markdown-body table tr:nth-child(2n) {
-    background-color: #141414 !important;
+    background-color: #0c1425 !important;
   }
 
   .markdown-body table th,
   .markdown-body table td {
-    border: 1px solid #262626 !important;
+    border: 1px solid #1a2744 !important;
+  }
+
+  .markdown-body table th {
+    background-color: #111d35 !important;
   }
 
   .markdown-body blockquote {
-    border-left: 3px solid #d4af37 !important;
-    background-color: rgba(212, 175, 55, 0.04) !important;
+    border-left: 3px solid #3b82f6 !important;
+    background-color: rgba(59, 130, 246, 0.04) !important;
     color: #c9d1d9 !important;
     padding: 0.6em 1em !important;
     border-radius: 0 4px 4px 0 !important;
   }
 
+  /* Markdown headings */
+  .markdown-body h1,
+  .markdown-body h2 {
+    border-bottom-color: #1a2744 !important;
+  }
+
+  /* Markdown links */
+  .markdown-body a {
+    color: #3b82f6 !important;
+  }
+
+  .markdown-body a:hover {
+    color: #60a5fa !important;
+  }
+
   /* ==========================================================================
-     6. Buttons & Interactive Controls
+     8. Buttons & Interactive Controls
      ========================================================================== */
-  /* Primary Action Buttons (Gold Accents) */
+  /* Primary Action Buttons (Blue Accent) */
   .btn-primary {
-    background-color: #d4af37 !important;
-    color: #000000 !important;
-    border-color: #c49f27 !important;
+    background-color: #3b82f6 !important;
+    color: #ffffff !important;
+    border-color: #2563eb !important;
     font-weight: 600 !important;
   }
 
   .btn-primary:hover,
   .btn-primary:focus {
-    background-color: #e5be47 !important;
-    border-color: #d4af37 !important;
+    background-color: #60a5fa !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.25) !important;
   }
 
   /* Secondary / Standard Buttons */
   .btn {
-    background-color: #161616 !important;
-    border-color: #2d2d2d !important;
+    background-color: #111d35 !important;
+    border-color: #1a2744 !important;
     color: #e6edf3 !important;
   }
 
   .btn:hover {
-    background-color: #202020 !important;
-    border-color: #d4af37 !important;
+    background-color: #152545 !important;
+    border-color: #3b82f6 !important;
+    color: #3b82f6 !important;
   }
 
   .btn:focus,
   .btn:focus-visible {
-    outline: 2px solid #d4af37 !important;
+    outline: 2px solid #3b82f6 !important;
     outline-offset: 1px !important;
   }
 
@@ -191,53 +561,122 @@
   .form-control,
   input.form-control,
   textarea.form-control {
-    background-color: #0d0d0d !important;
-    border-color: #2d2d2d !important;
+    background-color: #081020 !important;
+    border-color: #1a2744 !important;
     color: #e6edf3 !important;
   }
 
   .form-control:focus {
-    border-color: #d4af37 !important;
-    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.25) !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25) !important;
   }
 
   /* ==========================================================================
-     7. Navigation & Tabs
+     9. Navigation & Tabs
      ========================================================================== */
   .UnderlineNav-item[aria-current="page"],
   .UnderlineNav-item.selected,
   .tabnav-tab[aria-selected="true"] {
-    border-bottom: 2px solid #d4af37 !important;
-    color: #ffffff !important;
+    border-bottom: 2px solid #3b82f6 !important;
+    color: #3b82f6 !important;
     font-weight: 600 !important;
   }
 
   .UnderlineNav-item:hover,
   .tabnav-tab:hover {
-    color: #d4af37 !important;
+    color: #3b82f6 !important;
+  }
+
+  .UnderlineNav-item {
+    color: #8b949e !important;
   }
 
   /* Header Links & Hover */
   a:hover {
-    color: #d4af37 !important;
+    color: #60a5fa !important;
   }
 
   /* Repository Topics & Tags */
   .topic-tag {
-    background-color: rgba(212, 175, 55, 0.1) !important;
-    color: #d4af37 !important;
-    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+    background-color: rgba(59, 130, 246, 0.1) !important;
+    color: #3b82f6 !important;
+    border: 1px solid rgba(59, 130, 246, 0.3) !important;
   }
 
   .topic-tag:hover {
-    background-color: rgba(212, 175, 55, 0.2) !important;
+    background-color: rgba(59, 130, 246, 0.2) !important;
     color: #ffffff !important;
   }
 
   /* Counters and Badges */
   .Counter {
-    background-color: #1e1e1e !important;
-    color: #c9d1d9 !important;
-    border: 1px solid #2d2d2d !important;
+    background-color: #111d35 !important;
+    color: #3b82f6 !important;
+    border: 1px solid #1a2744 !important;
+  }
+
+  /* ==========================================================================
+     10. Dropdown Menus & Overlays
+     ========================================================================== */
+  .SelectMenu-modal,
+  .Overlay,
+  .ActionListWrap,
+  details-menu,
+  .dropdown-menu {
+    background-color: #0c1425 !important;
+    border-color: #1a2744 !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6) !important;
+  }
+
+  .SelectMenu-item,
+  .ActionListItem {
+    color: #e6edf3 !important;
+  }
+
+  .SelectMenu-item:hover,
+  .ActionListItem:hover {
+    background-color: #111d35 !important;
+    color: #3b82f6 !important;
+  }
+
+  .SelectMenu-header {
+    background-color: #111d35 !important;
+    border-bottom-color: #1a2744 !important;
+  }
+
+  /* ==========================================================================
+     11. Tooltips & Hovercards
+     ========================================================================== */
+  .Popover-message,
+  .hovercard-content {
+    background-color: #0c1425 !important;
+    border-color: #1a2744 !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6) !important;
+  }
+
+  /* ==========================================================================
+     12. Accessibility & Responsive Adjustments
+     ========================================================================== */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .dashboard-sidebar {
+      border-right: none !important;
+      border-bottom: 1px solid #142038 !important;
+      margin-bottom: 16px !important;
+    }
+
+    ol.pinned-items-list {
+      grid-template-columns: 1fr !important;
+    }
   }
 }
