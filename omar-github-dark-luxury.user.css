@@ -1,0 +1,243 @@
+/* ==UserStyle==
+@name           GitHub Dark Architecture & Gold — Omar Emad
+@namespace      github.com/omaremadahmed
+@version        2.0.0
+@description    A refined dark obsidian and metallic gold engineering theme for GitHub
+@author         Omar Emad Ahmed
+@license        MIT
+==/UserStyle== */
+
+@-moz-document domain("github.com") {
+  /* ==========================================================================
+     1. Design Tokens & Global CSS Variables
+     ========================================================================== */
+  :root,
+  [data-color-mode="dark"],
+  [data-dark-theme="dark"],
+  [data-dark-theme="dark_dimmed"],
+  [data-dark-theme="dark_high_contrast"] {
+    --canvas-default: #0a0a0a !important;
+    --canvas-overlay: #121212 !important;
+    --canvas-subtle: #141414 !important;
+    --canvas-inset: #0d0d0d !important;
+    
+    --border-default: #262626 !important;
+    --border-muted: #1c1c1c !important;
+    --border-subtle: #202020 !important;
+    
+    --fgColor-default: #e6edf3 !important;
+    --fgColor-muted: #9aa4b0 !important;
+    --fgColor-onEmphasis: #000000 !important;
+    
+    --accent-fg: #d4af37 !important;
+    --accent-emphasis: #d4af37 !important;
+    --accent-muted: rgba(212, 175, 55, 0.2) !important;
+    --accent-subtle: rgba(212, 175, 55, 0.08) !important;
+    
+    --success-fg: #3fb950 !important;
+    --attention-fg: #d29922 !important;
+    --danger-fg: #f85149 !important;
+  }
+
+  /* ==========================================================================
+     2. Page Backgrounds & Canvas Surfaces
+     ========================================================================== */
+  body, 
+  .application-main,
+  .AppHeader,
+  .footer,
+  #user-profile-frame {
+    background-color: #0a0a0a !important;
+    color: #e6edf3 !important;
+  }
+
+  /* Top Global Header */
+  header.AppHeader,
+  .AppHeader-globalBar {
+    background-color: #0d0d0d !important;
+    border-bottom: 1px solid #262626 !important;
+  }
+
+  /* ==========================================================================
+     3. Card Containers, Boxes, & Repository Panels
+     ========================================================================== */
+  .Box,
+  .border,
+  .timeline-comment,
+  .discussion-timeline-actions,
+  .Subhead,
+  .flash,
+  .blankslate,
+  .pinned-item-list-item,
+  .UnderlineNav {
+    background-color: #121212 !important;
+    border-color: #262626 !important;
+  }
+
+  .Box-header,
+  .timeline-comment-header {
+    background-color: #161616 !important;
+    border-bottom-color: #262626 !important;
+  }
+
+  .Box-row {
+    background-color: #121212 !important;
+    border-top-color: #202020 !important;
+  }
+
+  .Box-row:hover {
+    background-color: #171717 !important;
+  }
+
+  /* Profile README Master Card */
+  #user-profile-frame .Box {
+    background-color: #0d0d0d !important;
+    border: 1px solid #262626 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.65) !important;
+  }
+
+  /* ==========================================================================
+     4. Code Blocks, File Viewers & Diffs
+     ========================================================================== */
+  pre, 
+  .blob-wrapper, 
+  .highlight,
+  .markdown-body pre,
+  .markdown-body code:not(pre code) {
+    background-color: #0d0d0d !important;
+    border-color: #222222 !important;
+  }
+
+  pre,
+  .markdown-body pre {
+    border: 1px solid #262626 !important;
+    border-radius: 6px !important;
+  }
+
+  .markdown-body code:not(pre code) {
+    border: 1px solid #262626 !important;
+    padding: 0.2em 0.4em !important;
+    border-radius: 4px !important;
+    color: #e6edf3 !important;
+  }
+
+  /* File Tree & File Headers */
+  .js-navigation-item:hover {
+    background-color: #181818 !important;
+  }
+
+  /* ==========================================================================
+     5. Markdown Tables & Lists
+     ========================================================================== */
+  .markdown-body table tr {
+    background-color: #0f0f0f !important;
+    border-top: 1px solid #262626 !important;
+  }
+
+  .markdown-body table tr:nth-child(2n) {
+    background-color: #141414 !important;
+  }
+
+  .markdown-body table th,
+  .markdown-body table td {
+    border: 1px solid #262626 !important;
+  }
+
+  .markdown-body blockquote {
+    border-left: 3px solid #d4af37 !important;
+    background-color: rgba(212, 175, 55, 0.04) !important;
+    color: #c9d1d9 !important;
+    padding: 0.6em 1em !important;
+    border-radius: 0 4px 4px 0 !important;
+  }
+
+  /* ==========================================================================
+     6. Buttons & Interactive Controls
+     ========================================================================== */
+  /* Primary Action Buttons (Gold Accents) */
+  .btn-primary {
+    background-color: #d4af37 !important;
+    color: #000000 !important;
+    border-color: #c49f27 !important;
+    font-weight: 600 !important;
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: #e5be47 !important;
+    border-color: #d4af37 !important;
+  }
+
+  /* Secondary / Standard Buttons */
+  .btn {
+    background-color: #161616 !important;
+    border-color: #2d2d2d !important;
+    color: #e6edf3 !important;
+  }
+
+  .btn:hover {
+    background-color: #202020 !important;
+    border-color: #d4af37 !important;
+  }
+
+  .btn:focus,
+  .btn:focus-visible {
+    outline: 2px solid #d4af37 !important;
+    outline-offset: 1px !important;
+  }
+
+  /* Input Fields & Search */
+  .form-control,
+  input.form-control,
+  textarea.form-control {
+    background-color: #0d0d0d !important;
+    border-color: #2d2d2d !important;
+    color: #e6edf3 !important;
+  }
+
+  .form-control:focus {
+    border-color: #d4af37 !important;
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.25) !important;
+  }
+
+  /* ==========================================================================
+     7. Navigation & Tabs
+     ========================================================================== */
+  .UnderlineNav-item[aria-current="page"],
+  .UnderlineNav-item.selected,
+  .tabnav-tab[aria-selected="true"] {
+    border-bottom: 2px solid #d4af37 !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+  }
+
+  .UnderlineNav-item:hover,
+  .tabnav-tab:hover {
+    color: #d4af37 !important;
+  }
+
+  /* Header Links & Hover */
+  a:hover {
+    color: #d4af37 !important;
+  }
+
+  /* Repository Topics & Tags */
+  .topic-tag {
+    background-color: rgba(212, 175, 55, 0.1) !important;
+    color: #d4af37 !important;
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+  }
+
+  .topic-tag:hover {
+    background-color: rgba(212, 175, 55, 0.2) !important;
+    color: #ffffff !important;
+  }
+
+  /* Counters and Badges */
+  .Counter {
+    background-color: #1e1e1e !important;
+    color: #c9d1d9 !important;
+    border: 1px solid #2d2d2d !important;
+  }
+}

@@ -181,7 +181,7 @@ My software development methodology follows a disciplined six-stage progression 
 <tr>
 <td width="100%">
 
-### 1. House Platform — Modular Enterprise Web Ecosystem
+### 1. House Platform — Modular Enterprise Web Ecosystem `[Enterprise Base / Private]`
 *A multi-domain web ecosystem integrating academic coordination, transaction ledgers, and commerce.*
 
 - **Engineering Problem:** Coordinating multiple distinct business domains (academic management, simulated banking, and e-commerce) within a coherent platform without architectural coupling.
@@ -198,8 +198,10 @@ My software development methodology follows a disciplined six-stage progression 
 <tr>
 <td width="100%">
 
-### 2. Enterprise News Platform — Clean Architecture & CQRS
+### 2. [Enterprise News Platform — Clean Architecture & CQRS](https://github.com/omaremadahmed/enterprise-news-platform)
 *An enterprise publishing and editorial platform engineered for structured, auditable workflows.*
+
+[![Repository](https://img.shields.io/badge/View_Repository-enterprise--news--platform-181717?style=flat-square&logo=github)](https://github.com/omaremadahmed/enterprise-news-platform)
 
 - **Engineering Problem:** Managing multi-stage editorial workflows with strict validation, event auditing, and real-time collaboration.
 - **Architectural Solution:** Strict Clean Architecture across 5 layers (`Domain`, `Application`, `Infrastructure`, `Persistence`, `API`); MediatR command and query handlers; FluentValidation pipeline behaviors; Entity Framework Core with 21 relational tables; SignalR real-time event broadcasting.
@@ -215,8 +217,10 @@ My software development methodology follows a disciplined six-stage progression 
 <tr>
 <td width="100%">
 
-### 3. Bezrah (بذرة) — Bilingual Agricultural E-Commerce Platform
+### 3. [Bezrah (بذرة) — Bilingual Agricultural E-Commerce Platform](https://github.com/omaremadahmed/bezrah-platform)
 *A production-grade digital marketplace connecting regional growers with consumer and business markets.*
+
+[![Repository](https://img.shields.io/badge/View_Repository-bezrah--platform-181717?style=flat-square&logo=github)](https://github.com/omaremadahmed/bezrah-platform)
 
 - **Engineering Problem:** Solving awkward RTL adaptations in traditional commerce platforms while providing smooth product discovery and multi-channel inquiry pipelines.
 - **Architectural Solution:** Native bidirectional architecture supporting seamless Arabic (RTL) and English (LTR) layout mirroring with tailored typography; Vue 3 Composition API; Pinia reactive stores; Laravel REST API backend with PostgreSQL.
@@ -232,8 +236,10 @@ My software development methodology follows a disciplined six-stage progression 
 <tr>
 <td width="100%">
 
-### 4. Study Planner — Harvard CS50W Capstone Project
+### 4. [Study Planner — Harvard CS50W Capstone Project](https://github.com/omaremadahmed/study-planner-cs50w)
 *A customized academic productivity application designed to prevent burnout through structured intervals.*
+
+[![Repository](https://img.shields.io/badge/View_Repository-study--planner--cs50w-181717?style=flat-square&logo=github)](https://github.com/omaremadahmed/study-planner-cs50w)
 
 - **Engineering Problem:** Students frequently experience productivity degradation due to unstructured study sessions and lack of historical subject time tracking.
 - **Architectural Solution:** Multi-app Django architecture (`planner`, `subjects`, `tasks`, `users`) with an asynchronous JavaScript state machine managing active Pomodoro intervals and persisting session metrics to SQLite.
@@ -249,8 +255,10 @@ My software development methodology follows a disciplined six-stage progression 
 <tr>
 <td width="100%">
 
-### 5. Strategic Engineering Portfolio — Next.js 15 App Architecture
+### 5. [Strategic Engineering Portfolio — Next.js 15 App Architecture](https://github.com/omaremadahmed/portfolio-app)
 *An interactive bilingual digital portfolio showcasing architectural systems and verified coursework.*
+
+[![Repository](https://img.shields.io/badge/View_Repository-portfolio--app-181717?style=flat-square&logo=github)](https://github.com/omaremadahmed/portfolio-app)
 
 - **Engineering Problem:** Presenting multi-disciplinary engineering domains and academic evidence in a performant, type-safe web application with seamless Arabic/English switching.
 - **Architectural Solution:** Next.js 15 App Router with React 19, strict TypeScript schemas, and modern glassmorphic styling tokens; dynamic RTL/LTR context provider.
