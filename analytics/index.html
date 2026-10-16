@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engineering Telemetry & Portfolio Analytics — Omar Emad Ahmed</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <span class="status-dot"></span>
+        <span class="brand-title">Omar Emad Ahmed</span>
+        <span class="brand-badge">Command Center Analytics</span>
+      </div>
+      <nav class="nav-links">
+        <a href="../README.md" class="nav-item">← Profile README</a>
+        <a href="https://github.com/omaremadahmed?tab=projects" target="_blank" rel="noopener noreferrer" class="nav-item">Project Hub</a>
+        <a href="../docs/SYSTEMS_ANALYSIS_HUB.md" class="nav-item">Systems Analysis</a>
+        <button id="refresh-data-btn" class="btn btn-outline" title="Refresh live telemetry data">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+            <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+            <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+          </svg>
+          Sync Data
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-container">
+    
+    <!-- Hero / Telemetry Status Banner -->
+    <section class="telemetry-banner">
+      <div class="banner-content">
+        <h1>Engineering Telemetry & Systems Analytics</h1>
+        <p class="subtitle">Real-time public repository data, language breakdown, and architectural distribution for <code>omaremadahmed</code>.</p>
+      </div>
+      <div class="telemetry-meta">
+        <div class="meta-item">
+          <span class="meta-label">Data Source:</span>
+          <span class="meta-value">GitHub Public REST API</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Cache Strategy:</span>
+          <span class="meta-value">15-min LocalStorage TTL</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Last Updated:</span>
+          <span class="meta-value" id="last-updated-text">Checking...</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">API Rate Limit:</span>
+          <span class="meta-value" id="rate-limit-text">60 / hr (Unauthenticated)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Error / Warning Banner -->
+    <div id="notice-banner" class="notice-banner hidden"></div>
+
+    <!-- Category A: GitHub Overview Metric Cards -->
+    <section class="metrics-grid" id="metrics-summary">
+      <div class="metric-card">
+        <div class="metric-icon">📦</div>
+        <div class="metric-info">
+          <span class="metric-number" id="metric-repos">—</span>
+          <span class="metric-label">Public Repositories</span>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon">🛠</div>
+        <div class="metric-info">
+          <span class="metric-number" id="metric-languages">—</span>
+          <span class="metric-label">Primary Languages</span>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon">⭐</div>
+        <div class="metric-info">
+          <span class="metric-number" id="metric-stars">—</span>
+          <span class="metric-label">Total Stars Earned</span>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon">🔱</div>
+        <div class="metric-info">
+          <span class="metric-number" id="metric-forks">—</span>
+          <span class="metric-label">Total Repository Forks</span>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-info">
+          <span class="metric-number" id="metric-domains">5</span>
+          <span class="metric-label">Engineered Systems</span>
+        </div>
+        <div class="metric-icon">🏗</div>
+      </div>
+    </section>
+
+    <!-- Category C: Technology & Domain Analysis (Charts) -->
+    <section class="charts-section">
+      <div class="chart-container">
+        <div class="chart-header">
+          <h3>Primary Language Distribution</h3>
+          <span class="chart-subtitle">Calculated by repository primary language classification</span>
+        </div>
+        <div class="canvas-wrapper">
+          <canvas id="language-chart" width="400" height="260"></canvas>
+        </div>
+        <div id="language-legend" class="custom-legend"></div>
+      </div>
+
+      <div class="chart-container">
+        <div class="chart-header">
+          <h3>Engineering Domain Breakdown</h3>
+          <span class="chart-subtitle">Distribution across verified system architectural roles</span>
+        </div>
+        <div class="canvas-wrapper">
+          <canvas id="domain-chart" width="400" height="260"></canvas>
+        </div>
+        <div id="domain-legend" class="custom-legend"></div>
+      </div>
+    </section>
+
+    <!-- Category B: Repository Explorer (Table with Filters) -->
+    <section class="repository-explorer-section">
+      <div class="section-header">
+        <div>
+          <h2>Repository Explorer</h2>
+          <p class="section-desc">Search, filter, and inspect verified public repositories with live GitHub metadata.</p>
+        </div>
+        <div class="filter-controls">
+          <input type="text" id="repo-search-input" placeholder="Search by repository name, topic, or keyword…" class="input-search" />
+          <select id="language-filter" class="select-filter">
+            <option value="all">All Languages</option>
+          </select>
+          <select id="sort-filter" class="select-filter">
+            <option value="updated">Sort by: Recently Updated</option>
+            <option value="stars">Sort by: Stars</option>
+            <option value="name">Sort by: Name (A-Z)</option>
+            <option value="forks">Sort by: Forks</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table class="data-table" id="repos-table">
+          <thead>
+            <tr>
+              <th>Repository</th>
+              <th>Primary Language</th>
+              <th>Stars</th>
+              <th>Forks</th>
+              <th>Open Issues</th>
+              <th>Last Updated</th>
+              <th>Direct Action</th>
+            </tr>
+          </thead>
+          <tbody id="repos-table-body">
+            <!-- Dynamic rows rendered via JavaScript -->
+            <tr>
+              <td colspan="7" class="loading-cell">Loading verified repository telemetry…</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Category D: Engineered Systems Portfolio Matrix -->
+    <section class="systems-matrix-section">
+      <div class="section-header">
+        <h2>Engineered Systems Portfolio Overview</h2>
+        <p class="section-desc">Cross-system reference mapping each platform to its verified architectural pattern and persistent state model.</p>
+      </div>
+
+      <div class="systems-grid">
+        <div class="system-card">
+          <div class="system-header">
+            <h4>Enterprise News Platform</h4>
+            <span class="badge badge-blue">Flagship Project</span>
+          </div>
+          <p class="system-summary">Clean Architecture + CQRS publishing platform with MediatR pipeline behaviors and SignalR real-time event broadcasting.</p>
+          <div class="system-details">
+            <div><strong>Stack:</strong> C# · ASP.NET Core 8 · Angular 18 · EF Core · PostgreSQL · Redis</div>
+            <div><strong>Data:</strong> 21 Relational Tables · ACID Transactions · Cache-Aside</div>
+          </div>
+          <div class="system-links">
+            <a href="https://github.com/omaremadahmed/enterprise-news-platform" target="_blank" rel="noopener">Repository →</a>
+            <a href="../docs/ENTERPRISE_NEWS_PLATFORM_README.md">Architecture Spec →</a>
+          </div>
+        </div>
+
+        <div class="system-card">
+          <div class="system-header">
+            <h4>Bezrah (بذرة) Platform</h4>
+            <span class="badge badge-cyan">Full-Stack E-Commerce</span>
+          </div>
+          <p class="system-summary">Bilingual agricultural marketplace engineered with native Arabic (RTL) and English (LTR) layout mirroring with zero layout shift.</p>
+          <div class="system-details">
+            <div><strong>Stack:</strong> Vue 3 · Pinia · Vite · Laravel REST API · PostgreSQL</div>
+            <div><strong>Data:</strong> E-Commerce Order Ledger · OAuth Providers · Token Auth</div>
+          </div>
+          <div class="system-links">
+            <a href="https://github.com/omaremadahmed/bezrah-platform" target="_blank" rel="noopener">Repository →</a>
+            <a href="../docs/BEZRAH_PLATFORM_README.md">Architecture Spec →</a>
+          </div>
+        </div>
+
+        <div class="system-card">
+          <div class="system-header">
+            <h4>Study Planner CS50W</h4>
+            <span class="badge badge-purple">Productivity Suite</span>
+          </div>
+          <p class="system-summary">Academic productivity suite featuring a client-side Pomodoro finite-state machine and asynchronous session tracking. Harvard CS50W Capstone.</p>
+          <div class="system-details">
+            <div><strong>Stack:</strong> Python · Django · JavaScript · SQLite / PostgreSQL</div>
+            <div><strong>Data:</strong> Three-Tier Isolation (Subjects → Tasks → Sessions)</div>
+          </div>
+          <div class="system-links">
+            <a href="https://github.com/omaremadahmed/study-planner-cs50w" target="_blank" rel="noopener">Repository →</a>
+            <a href="../docs/STUDY_PLANNER_README.md">Architecture Spec →</a>
+          </div>
+        </div>
+
+        <div class="system-card">
+          <div class="system-header">
+            <h4>Portfolio Web App</h4>
+            <span class="badge badge-indigo">Frontend / UI/UX</span>
+          </div>
+          <p class="system-summary">Type-safe bilingual engineering portfolio built with Next.js 15 (App Router), React 19 Server Components, and TypeScript strict mode.</p>
+          <div class="system-details">
+            <div><strong>Stack:</strong> Next.js 15 · React 19 · TypeScript · Tailwind CSS</div>
+            <div><strong>Data:</strong> Static / Edge Hydration · Zero Runtime Style Overhead</div>
+          </div>
+          <div class="system-links">
+            <a href="https://github.com/omaremadahmed/portfolio-app" target="_blank" rel="noopener">Repository →</a>
+            <a href="../docs/PORTFOLIO_APP_README.md">Architecture Spec →</a>
+          </div>
+        </div>
+
+        <div class="system-card">
+          <div class="system-header">
+            <h4>House Platform</h4>
+            <span class="badge badge-yellow">Architecture Base</span>
+          </div>
+          <p class="system-summary">Modular enterprise ecosystem base engineered with domain partitioning across academic coordination and transaction ledgers.</p>
+          <div class="system-details">
+            <div><strong>Stack:</strong> Django REST · React · Celery · Redis · PostgreSQL · Docker</div>
+            <div><strong>Data:</strong> Double-Entry Ledger · Asynchronous Celery Worker Queue</div>
+          </div>
+          <div class="system-links">
+            <span class="private-tag">🔒 Architecture Base (Private Repository)</span>
+            <a href="../docs/HOUSE_PLATFORM_README.md">Architecture Spec →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Category F: Methodology & Limitations -->
+    <section class="methodology-section">
+      <div class="methodology-card">
+        <h3>Methodology, Data Sources & Rate Limiting</h3>
+        <p>This analytics application connects directly to the official unauthenticated GitHub REST API (<code>api.github.com</code>) to retrieve public metadata on client initialization. To prevent quota exhaustion (60 requests per hour per IP on unauthenticated endpoints), the client stores verified payloads in <code>localStorage</code> with a 15-minute Time-To-Live (TTL).</p>
+        <div class="methodology-grid">
+          <div>
+            <strong>Reported Metrics:</strong>
+            <ul>
+              <li>Public repository counts, star counts, and fork counts.</li>
+              <li>Primary programming language as determined by GitHub Linguist.</li>
+              <li>Repository creation and last-updated ISO 8601 timestamps.</li>
+            </ul>
+          </div>
+          <div>
+            <strong>Privacy & Architecture Boundaries:</strong>
+            <ul>
+              <li>Zero private repository code, branches, or tokens are exposed.</li>
+              <li>House Platform is presented as an architectural model per design policy.</li>
+              <li>No external tracking scripts, third-party CDNs, or telemetry pixels.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div>Omar Emad Ahmed · Systems Architecture & Engineering Analytics © 2026</div>
+      <div>Designed with Dark Luxury Electric Blue Tokens · <a href="../README.md">Back to Profile</a></div>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
