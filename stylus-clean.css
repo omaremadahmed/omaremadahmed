@@ -681,3 +681,206 @@ details-menu,
     grid-template-columns: 1fr !important;
   }
 }
+
+/* ==========================================================================
+   13. 2026 GitHub Home Dashboard (Copilot Console, Universe & Feeds)
+   ========================================================================== */
+/* Copilot Home Command Console Container */
+[data-testid="copilot-home"],
+.copilot-chat-container,
+div[data-component="copilot-home"],
+div:has(> textarea[placeholder*="Ask anything"]),
+div:has(> [data-testid="copilot-input-area"]) {
+  background-color: #0c1425 !important;
+  border: 1px solid #1a2744 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(59, 130, 246, 0.08) !important;
+}
+
+/* Copilot Textarea and Input Area */
+textarea[placeholder*="Ask anything"],
+div[data-testid="copilot-home"] textarea,
+[data-testid="copilot-input-area"] {
+  background-color: transparent !important;
+  color: #e6edf3 !important;
+}
+
+/* Copilot Action Pills (Debug, Agent, Create issue, Write code, Git, Pull requests) */
+[data-testid="copilot-home"] button,
+div:has(> textarea[placeholder*="Ask anything"]) button,
+div[data-component="copilot-home"] button {
+  background-color: #111d35 !important;
+  border: 1px solid #1a2744 !important;
+  color: #93c5fd !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+[data-testid="copilot-home"] button:hover,
+div:has(> textarea[placeholder*="Ask anything"]) button:hover {
+  background-color: #1e3a8a !important;
+  border-color: #3b82f6 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.35) !important;
+}
+
+/* Home Dashboard Right Sidebar Promo & Universe Banner */
+.feed-right-sidebar section,
+.feed-right-sidebar aside,
+div[data-testid="feed-banner"],
+div[data-testid="feed-right-column"] {
+  background-color: #0c1425 !important;
+  border: 1px solid #1a2744 !important;
+  border-radius: 10px !important;
+}
+
+/* Right Sidebar Universe "Save your seat" Button */
+.feed-right-sidebar a[href*="universe"],
+.feed-right-sidebar button.btn-primary,
+.feed-right-sidebar a.btn-primary {
+  background-color: #2563eb !important;
+  border-color: #3b82f6 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.4) !important;
+}
+
+/* Feed Filter Button & Feed Controls */
+button[data-testid="feed-filter-button"],
+.feed-header button {
+  background-color: #111d35 !important;
+  border: 1px solid #1a2744 !important;
+  color: #93c5fd !important;
+}
+
+/* Feed Changelog Timeline */
+div[data-target="feed-changelog"] ul li,
+.dashboard-changelog li {
+  border-left: 2px solid #1a2744 !important;
+}
+
+div[data-target="feed-changelog"] ul li::before,
+.dashboard-changelog li::before {
+  background-color: #3b82f6 !important;
+  box-shadow: 0 0 8px #3b82f6 !important;
+}
+
+/* ==========================================================================
+   14. GitHub Projects v2 (Memex Command Center & Insights)
+   ========================================================================== */
+/* Main Memex Project Canvas & Root Container */
+[data-testid="project-header"],
+[data-testid="memex-project-view"],
+[data-testid="memex-app"],
+div[data-testid="memex-root"],
+.memex-app,
+main:has([data-testid="memex-table"]) {
+  background-color: #060b18 !important;
+  color: #e6edf3 !important;
+}
+
+/* Memex View Tab Bar */
+[data-testid="memex-views-tab-list"],
+[data-testid="memex-views-tab-list"] nav {
+  background-color: #081020 !important;
+  border-bottom: 1px solid #1a2744 !important;
+}
+
+/* Memex Individual View Tab */
+[data-testid="memex-view-tab"],
+[data-testid="memex-views-tab-list"] button {
+  color: #8b949e !important;
+}
+
+[data-testid="memex-view-tab"][aria-selected="true"],
+[data-testid="memex-views-tab-list"] button[aria-selected="true"] {
+  color: #3b82f6 !important;
+  border-bottom: 2px solid #3b82f6 !important;
+  background-color: rgba(59, 130, 246, 0.08) !important;
+}
+
+/* Memex Filter Bar */
+[data-testid="memex-filter-bar"],
+div:has(> [data-testid="memex-filter-input"]) {
+  background-color: #081020 !important;
+  border-bottom: 1px solid #1a2744 !important;
+}
+
+[data-testid="memex-filter-input"] {
+  background-color: #0c1425 !important;
+  border: 1px solid #1a2744 !important;
+  color: #e6edf3 !important;
+}
+
+[data-testid="memex-filter-input"]:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.25) !important;
+}
+
+/* Memex Table Grid */
+[data-testid="memex-table"],
+div[role="grid"],
+div[role="treegrid"] {
+  background-color: #060b18 !important;
+  border-color: #1a2744 !important;
+}
+
+/* Memex Column Headers */
+div[role="columnheader"],
+[data-testid="memex-table-header"] {
+  background-color: #0c1425 !important;
+  border-color: #1a2744 !important;
+  color: #93c5fd !important;
+  font-weight: 600 !important;
+}
+
+/* Memex Table Rows & Cells */
+div[role="row"],
+[data-testid="memex-table-row"] {
+  background-color: #060b18 !important;
+  border-bottom: 1px solid #142038 !important;
+  transition: background-color 0.15s ease !important;
+}
+
+div[role="row"]:hover,
+[data-testid="memex-table-row"]:hover {
+  background-color: #0c1425 !important;
+}
+
+div[role="gridcell"] {
+  border-color: #142038 !important;
+  color: #e6edf3 !important;
+}
+
+/* Memex Board View (Kanban Columns & Cards) */
+[data-testid="board-column"],
+.memex-board-column {
+  background-color: #081020 !important;
+  border: 1px solid #1a2744 !important;
+  border-radius: 8px !important;
+}
+
+[data-testid="board-card"],
+.memex-board-card {
+  background-color: #0c1425 !important;
+  border: 1px solid #1a2744 !important;
+  border-radius: 6px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+  transition: transform 0.2s ease, border-color 0.2s ease !important;
+}
+
+[data-testid="board-card"]:hover,
+.memex-board-card:hover {
+  border-color: #3b82f6 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.55), 0 0 12px rgba(59, 130, 246, 0.15) !important;
+}
+
+/* Memex Insights Panel & Charts */
+[data-testid="insights-view"],
+[data-testid="side-panel"],
+.memex-insights-chart {
+  background-color: #081020 !important;
+  border-color: #1a2744 !important;
+  color: #e6edf3 !important;
+}
+
