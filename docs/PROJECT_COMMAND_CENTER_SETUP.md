@@ -74,28 +74,52 @@ In your project top-right bar (visible in your screenshot next to `Workflows 6`)
 
 ---
 
-## 3. High-Priority Deliverables & Cards to Add
+## 3. Link Your Repositories to the Project (1 Click)
 
-You can use `Control + Space` directly inside the table to add these cards:
+In your open project screen:
+1. Click the **`...`** (three dots) menu in the top-right corner next to `Insights` & `Workflows 6`.
+2. Select **`Linked repositories`**.
+3. Check and link your 5 engineering repositories:
+   - `omaremadahmed/enterprise-news-platform`
+   - `omaremadahmed/bezrah-platform`
+   - `omaremadahmed/study-planner-cs50w`
+   - `omaremadahmed/portfolio-app`
+   - `omaremadahmed/omaremadahmed`
 
-| Card Title | Domain | Status | Complexity | Tech Stack |
-|:---|:---|:---|:---|:---|
-| **Enterprise News Platform: Core Domain Aggregates** | `Backend & Architecture` | `Completed / Hardened` | `High` | C# · EF Core 21 Tables |
-| **Enterprise News Platform: CQRS & MediatR Pipeline** | `Backend & Architecture` | `Completed / Hardened` | `High` | MediatR · FluentValidation |
-| **Enterprise News Platform: SignalR Real-Time Newsroom** | `Backend & Architecture` | `In Implementation` | `High` | SignalR · WebSockets · Redis |
-| **Enterprise News Platform: Angular 18 Editorial UI** | `Frontend & UI/UX` | `In Implementation` | `Medium` | Angular 18 · TypeScript |
-| **Bezrah Platform: Bidirectional RTL/LTR Layout Mirroring** | `Frontend & UI/UX` | `Completed / Hardened` | `Medium` | CSS Logical Properties · Vue 3 |
-| **Bezrah Platform: Pinia Reactive State Tree** | `Full-Stack & E-Commerce` | `Completed / Hardened` | `Medium` | Pinia · Vue 3 Composition API |
-| **Bezrah Platform: Laravel REST API & OAuth Handlers** | `Full-Stack & E-Commerce` | `In Implementation` | `Medium` | Laravel · PostgreSQL |
-| **Study Planner: Pomodoro Client State Machine** | `Productivity & State Machine` | `Completed / Hardened` | `Medium` | JavaScript Finite State Machine |
-| **Study Planner: User-Isolated Session Accounting** | `Productivity & State Machine` | `Completed / Hardened` | `Medium` | Python · Django ORM |
-| **Portfolio Web App: React 19 Server Components** | `Frontend & UI/UX` | `In Implementation` | `Medium` | Next.js 15 · React 19 |
-| **Portfolio Web App: Strict-Mode TypeScript Localization** | `Frontend & UI/UX` | `Completed / Hardened` | `Standard` | TypeScript Strict · Tailwind CSS |
-| **House Platform: Celery & Redis Async Job Pipelines** | `Distributed Systems` | `Architecture Spec` | `High` | Django REST · Celery · Docker |
+*Once linked, pressing `Control + Space` or typing `#` in any table row immediately autocompletes all issues from your repositories!*
 
 ---
 
-## 4. Single Source of Truth Reference
+## 4. Live Architectural Work Items & Issues (Ready to Add)
+
+The following real issues have been initialized in your repositories and can be pasted directly into your project table:
+
+### A. Enterprise News Platform (Flagship)
+* 🔗 `https://github.com/omaremadahmed/enterprise-news-platform/issues/1` — **[Architecture] 5-Tier Clean Architecture Domain Core & Invariants**
+* 🔗 `https://github.com/omaremadahmed/enterprise-news-platform/issues/2` — **[CQRS] MediatR Command Pipeline & FluentValidation Pre-Processor**
+* 🔗 `https://github.com/omaremadahmed/enterprise-news-platform/issues/3` — **[Real-Time] SignalR Editorial Newsroom Event Broadcaster**
+* 🔗 `https://github.com/omaremadahmed/enterprise-news-platform/issues/4` — **[Persistence] Entity Framework Core 21 Relational Tables & PostgreSQL**
+
+### B. Bezrah (بذرة) Agricultural Marketplace
+* 🔗 `https://github.com/omaremadahmed/bezrah-platform/issues/1` — **[Frontend] Native Bidirectional RTL/LTR Layout Engine with CSS Logical Properties**
+* 🔗 `https://github.com/omaremadahmed/bezrah-platform/issues/2` — **[State Management] Pinia Reactive Store Tree & Vue 3 Composition API**
+* 🔗 `https://github.com/omaremadahmed/bezrah-platform/issues/3` — **[Backend API] Laravel 11 REST API, OAuth Handlers & PostgreSQL Store**
+
+### C. Study Planner CS50W
+* 🔗 `https://github.com/omaremadahmed/study-planner-cs50w/issues/1` — **[Automata] Client-Side Pomodoro Finite-State Machine**
+* 🔗 `https://github.com/omaremadahmed/study-planner-cs50w/issues/2` — **[Security & Auditing] User Data Isolation & Asynchronous Session Ledger**
+
+### D. Portfolio Web App
+* 🔗 `https://github.com/omaremadahmed/portfolio-app/issues/1` — **[Architecture] Next.js 15 App Router & React 19 Server Components**
+* 🔗 `https://github.com/omaremadahmed/portfolio-app/issues/2` — **[Type Safety] Strict-Mode TypeScript Interfaces & Bilingual State**
+
+### E. House Platform (Architecture Base)
+* Draft Card: **House Platform: Celery & Redis Async Job Pipelines** (Status: `Architecture Spec` · Complexity: `High` · Stack: `Django REST · Celery · Docker`)
+
+---
+
+## 5. Single Source of Truth Reference
 
 All mathematical models, database schematics (21 tables), state machine charts, and trade-off analyses for these cards are fully documented in:  
 👉 **[`docs/SYSTEMS_ANALYSIS_HUB.md`](./SYSTEMS_ANALYSIS_HUB.md)**
+
