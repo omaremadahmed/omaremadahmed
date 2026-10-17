@@ -1,0 +1,221 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 440" width="100%" height="440">
+  <defs>
+    <linearGradient id="layerGradAPI" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c1425" />
+      <stop offset="100%" stop-color="#111d35" />
+    </linearGradient>
+    <linearGradient id="layerGradApp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1f3d" />
+      <stop offset="100%" stop-color="#162c56" />
+    </linearGradient>
+    <linearGradient id="layerGradDom" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+    <linearGradient id="layerGradInfra" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#081020" />
+      <stop offset="100%" stop-color="#0e172a" />
+    </linearGradient>
+    
+    <filter id="boxGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <style>
+      @keyframes flowDash {
+        to { stroke-dashoffset: -40; }
+      }
+      @keyframes corePulse {
+        0%, 100% { filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.4)); }
+        50% { filter: drop-shadow(0 0 14px rgba(96, 165, 250, 0.8)); }
+      }
+      .flow-path {
+        stroke-dasharray: 6 4;
+        animation: flowDash 1.8s linear infinite;
+      }
+      .core-box {
+        animation: corePulse 4s ease-in-out infinite;
+      }
+      .mono-label {
+        font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
+      }
+      .sans-label {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      }
+    </style>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="880" height="440" rx="12" fill="#060b18" stroke="#1a2744" stroke-width="1.5" />
+
+  <!-- Diagram Header Bar -->
+  <g transform="translate(30, 28)">
+    <rect x="0" y="0" width="820" height="34" rx="6" fill="#0c1425" stroke="#1a2744" />
+    <circle cx="16" cy="17" r="4" fill="#3b82f6" />
+    <text x="30" y="21" fill="#ffffff" font-size="13" font-weight="700" class="sans-label">ENTERPRISE NEWS PLATFORM // CLEAN ARCHITECTURE &amp; CQRS DECOMPOSITION</text>
+    <text x="660" y="21" fill="#60a5fa" font-size="11" font-weight="600" class="mono-label">[ 5 DECOUPLED LAYERS ]</text>
+  </g>
+
+  <!-- Left: Client Presentation -->
+  <g transform="translate(30, 85)">
+    <rect width="130" height="320" rx="8" fill="url(#layerGradAPI)" stroke="#1a2744" stroke-width="1.5" />
+    <rect x="0" y="0" width="130" height="36" rx="8" fill="#111d35" />
+    <text x="65" y="23" fill="#60a5fa" font-size="11" font-weight="700" text-anchor="middle" class="mono-label">PRESENTATION</text>
+    
+    <g transform="translate(15, 60)">
+      <rect width="100" height="65" rx="6" fill="#060b18" stroke="#1a2744" />
+      <text x="50" y="28" fill="#ffffff" font-size="11" font-weight="600" text-anchor="middle" class="sans-label">Angular 18</text>
+      <text x="50" y="46" fill="#8b949e" font-size="9" text-anchor="middle" class="mono-label">Newsroom UI</text>
+    </g>
+
+    <g transform="translate(15, 145)">
+      <rect width="100" height="65" rx="6" fill="#060b18" stroke="#1a2744" />
+      <text x="50" y="28" fill="#ffffff" font-size="11" font-weight="600" text-anchor="middle" class="sans-label">SignalR Client</text>
+      <text x="50" y="46" fill="#8b949e" font-size="9" text-anchor="middle" class="mono-label">Live Listener</text>
+    </g>
+
+    <g transform="translate(15, 230)">
+      <rect width="100" height="65" rx="6" fill="#060b18" stroke="#1a2744" />
+      <text x="50" y="28" fill="#ffffff" font-size="11" font-weight="600" text-anchor="middle" class="sans-label">Public Reader</text>
+      <text x="50" y="46" fill="#8b949e" font-size="9" text-anchor="middle" class="mono-label">Cached Feed</text>
+    </g>
+  </g>
+
+  <!-- Arrow: Client to API -->
+  <path d="M 160 148 L 195 148" fill="none" stroke="#3b82f6" stroke-width="2" class="flow-path" />
+  <polygon points="195,144 205,148 195,152" fill="#3b82f6" />
+
+  <!-- Middle 1: Web API Gateway -->
+  <g transform="translate(205, 85)">
+    <rect width="140" height="320" rx="8" fill="url(#layerGradAPI)" stroke="#1a2744" stroke-width="1.5" />
+    <rect x="0" y="0" width="140" height="36" rx="8" fill="#111d35" />
+    <text x="70" y="23" fill="#60a5fa" font-size="11" font-weight="700" text-anchor="middle" class="mono-label">WEB API LAYER</text>
+
+    <g transform="translate(15, 55)">
+      <rect width="110" height="48" rx="5" fill="#081020" stroke="#1a2744" />
+      <text x="55" y="24" fill="#e6edf3" font-size="10" font-weight="600" text-anchor="middle" class="sans-label">ASP.NET Core 8</text>
+      <text x="55" y="38" fill="#8b949e" font-size="8.5" text-anchor="middle" class="mono-label">Controllers / Routing</text>
+    </g>
+
+    <g transform="translate(15, 120)">
+      <rect width="110" height="48" rx="5" fill="#081020" stroke="#1a2744" />
+      <text x="55" y="24" fill="#e6edf3" font-size="10" font-weight="600" text-anchor="middle" class="sans-label">Middleware</text>
+      <text x="55" y="38" fill="#8b949e" font-size="8.5" text-anchor="middle" class="mono-label">Global Exceptions</text>
+    </g>
+
+    <g transform="translate(15, 185)">
+      <rect width="110" height="48" rx="5" fill="#081020" stroke="#1a2744" />
+      <text x="55" y="24" fill="#e6edf3" font-size="10" font-weight="600" text-anchor="middle" class="sans-label">Auth &amp; Security</text>
+      <text x="55" y="38" fill="#8b949e" font-size="8.5" text-anchor="middle" class="mono-label">JWT + RBAC Guards</text>
+    </g>
+
+    <g transform="translate(15, 250)">
+      <rect width="110" height="48" rx="5" fill="#081020" stroke="#1a2744" />
+      <text x="55" y="24" fill="#e6edf3" font-size="10" font-weight="600" text-anchor="middle" class="sans-label">Dependency Root</text>
+      <text x="55" y="38" fill="#8b949e" font-size="8.5" text-anchor="middle" class="mono-label">IoC Container</text>
+    </g>
+  </g>
+
+  <!-- Arrow: API to Application -->
+  <path d="M 345 148 L 380 148" fill="none" stroke="#3b82f6" stroke-width="2" class="flow-path" />
+  <polygon points="380,144 390,148 380,152" fill="#3b82f6" />
+
+  <!-- Middle 2: Application Core (CQRS / MediatR) -->
+  <g transform="translate(390, 85)">
+    <rect width="155" height="320" rx="8" fill="url(#layerGradApp)" stroke="#2563eb" stroke-width="1.5" />
+    <rect x="0" y="0" width="155" height="36" rx="8" fill="#1e3a8a" />
+    <text x="77" y="23" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle" class="mono-label">APPLICATION (CQRS)</text>
+
+    <g transform="translate(15, 55)">
+      <rect width="125" height="52" rx="5" fill="#0c1425" stroke="#3b82f6" stroke-dasharray="2 2" />
+      <text x="62" y="24" fill="#60a5fa" font-size="10" font-weight="700" text-anchor="middle" class="mono-label">MediatR Pipeline</text>
+      <text x="62" y="39" fill="#8b949e" font-size="8.5" text-anchor="middle" class="mono-label">Command/Query Bus</text>
+    </g>
+
+    <g transform="translate(15, 122)">
+      <rect width="125" height="52" rx="5" fill="#0c1425" stroke="#3b82f6" />
+      <text x="62" y="24" fill="#e6edf3" font-size="10" font-weight="600" text-anchor="middle" class="sans-label">FluentValidation</text>
+      <text x="62" y="39" fill="#8b949e" font-size="8.5" text-anchor="middle" class="mono-label">Pre-Execution Guard</text>
+    </g>
+
+    <g transform="translate(15, 189)">
+      <rect width="125" height="52" rx="5" fill="#0c1425" stroke="#3b82f6" />
+      <text x="62" y="24" fill="#e6edf3" font-size="10" font-weight="600" text-anchor="middle" class="sans-label">Command Handlers</text>
+      <text x="62" y="39" fill="#8b949e" font-size="8.5" text-anchor="middle" class="mono-label">Mutate Aggregates</text>
+    </g>
+
+    <g transform="translate(15, 256)">
+      <rect width="125" height="52" rx="5" fill="#0c1425" stroke="#3b82f6" />
+      <text x="62" y="24" fill="#e6edf3" font-size="10" font-weight="600" text-anchor="middle" class="sans-label">Query Handlers</text>
+      <text x="62" y="39" fill="#8b949e" font-size="8.5" text-anchor="middle" class="mono-label">Direct DTO Projections</text>
+    </g>
+  </g>
+
+  <!-- Arrow: Application to Domain -->
+  <path d="M 545 148 L 575 148" fill="none" stroke="#60a5fa" stroke-width="2" class="flow-path" />
+  <polygon points="575,144 585,148 575,152" fill="#60a5fa" />
+
+  <!-- Center-Right: Domain Core (Zero External Dependencies) -->
+  <g transform="translate(585, 85)" class="core-box">
+    <rect width="125" height="320" rx="8" fill="url(#layerGradDom)" stroke="#60a5fa" stroke-width="2" />
+    <rect x="0" y="0" width="125" height="36" rx="8" fill="#1d4ed8" />
+    <text x="62" y="23" fill="#ffffff" font-size="11" font-weight="800" text-anchor="middle" class="mono-label">DOMAIN CORE</text>
+
+    <g transform="translate(12, 60)">
+      <rect width="101" height="60" rx="5" fill="#0a1224" stroke="#60a5fa" />
+      <text x="50" y="26" fill="#ffffff" font-size="10" font-weight="700" text-anchor="middle" class="sans-label">Article Aggregates</text>
+      <text x="50" y="42" fill="#93c5fd" font-size="8" text-anchor="middle" class="mono-label">State Transitions</text>
+    </g>
+
+    <g transform="translate(12, 140)">
+      <rect width="101" height="60" rx="5" fill="#0a1224" stroke="#60a5fa" />
+      <text x="50" y="26" fill="#ffffff" font-size="10" font-weight="700" text-anchor="middle" class="sans-label">Domain Invariants</text>
+      <text x="50" y="42" fill="#93c5fd" font-size="8" text-anchor="middle" class="mono-label">Business Rules</text>
+    </g>
+
+    <g transform="translate(12, 220)">
+      <rect width="101" height="60" rx="5" fill="#0a1224" stroke="#60a5fa" />
+      <text x="50" y="26" fill="#ffffff" font-size="10" font-weight="700" text-anchor="middle" class="sans-label">Abstractions</text>
+      <text x="50" y="42" fill="#93c5fd" font-size="8" text-anchor="middle" class="mono-label">IRepository&lt;T&gt;</text>
+    </g>
+  </g>
+
+  <!-- Arrow: Application/Domain to Persistence -->
+  <path d="M 710 148 L 740 148" fill="none" stroke="#3b82f6" stroke-width="2" class="flow-path" />
+  <polygon points="740,144 750,148 740,152" fill="#3b82f6" />
+
+  <!-- Far Right: Persistence & Infrastructure -->
+  <g transform="translate(750, 85)">
+    <rect width="100" height="320" rx="8" fill="url(#layerGradInfra)" stroke="#1a2744" stroke-width="1.5" />
+    <rect x="0" y="0" width="100" height="36" rx="8" fill="#111d35" />
+    <text x="50" y="23" fill="#60a5fa" font-size="10" font-weight="700" text-anchor="middle" class="mono-label">INFRASTRUCTURE</text>
+
+    <g transform="translate(10, 50)">
+      <rect width="80" height="52" rx="4" fill="#060b18" stroke="#1a2744" />
+      <text x="40" y="23" fill="#ffffff" font-size="9" font-weight="600" text-anchor="middle" class="sans-label">EF Core</text>
+      <text x="40" y="38" fill="#8b949e" font-size="8" text-anchor="middle" class="mono-label">21 Entities</text>
+    </g>
+
+    <g transform="translate(10, 115)">
+      <rect width="80" height="52" rx="4" fill="#060b18" stroke="#1a2744" />
+      <text x="40" y="23" fill="#ffffff" font-size="9" font-weight="600" text-anchor="middle" class="sans-label">PostgreSQL</text>
+      <text x="40" y="38" fill="#8b949e" font-size="8" text-anchor="middle" class="mono-label">ACID Store</text>
+    </g>
+
+    <g transform="translate(10, 180)">
+      <rect width="80" height="52" rx="4" fill="#060b18" stroke="#1a2744" />
+      <text x="40" y="23" fill="#ffffff" font-size="9" font-weight="600" text-anchor="middle" class="sans-label">Redis Cache</text>
+      <text x="40" y="38" fill="#8b949e" font-size="8" text-anchor="middle" class="mono-label">Cache-Aside</text>
+    </g>
+
+    <g transform="translate(10, 245)">
+      <rect width="80" height="52" rx="4" fill="#060b18" stroke="#1a2744" />
+      <text x="40" y="23" fill="#ffffff" font-size="9" font-weight="600" text-anchor="middle" class="sans-label">SignalR Hub</text>
+      <text x="40" y="38" fill="#8b949e" font-size="8" text-anchor="middle" class="mono-label">WebSockets</text>
+    </g>
+  </g>
+</svg>

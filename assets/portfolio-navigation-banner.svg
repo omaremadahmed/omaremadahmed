@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 180" width="100%" height="180">
+  <defs>
+    <linearGradient id="navCardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1224" />
+      <stop offset="100%" stop-color="#0e172a" />
+    </linearGradient>
+    <linearGradient id="navAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e3a8a" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#60a5fa" />
+    </linearGradient>
+    <style>
+      @keyframes cardPulse {
+        0%, 100% { stroke: #1a2744; }
+        50% { stroke: #2563eb; }
+      }
+      .card-box {
+        animation: cardPulse 4s ease-in-out infinite;
+      }
+      .mono-txt {
+        font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
+      }
+      .sans-txt {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      }
+    </style>
+  </defs>
+
+  <!-- Base Canvas -->
+  <rect width="880" height="180" rx="10" fill="#060b18" stroke="#1a2744" stroke-width="1.5" />
+
+  <!-- Top Title Bar -->
+  <g transform="translate(24, 16)">
+    <text x="0" y="14" fill="#ffffff" font-size="12" font-weight="700" letter-spacing="1" class="sans-txt">PORTFOLIO ARCHITECTURE HUBS // STRATEGIC DOMAINS</text>
+    <text x="700" y="14" fill="#60a5fa" font-size="10" font-weight="600" class="mono-txt">[ 4 VERIFIED HUBS ]</text>
+    <line x1="0" y1="24" x2="832" y2="24" stroke="#142038" stroke-width="1" />
+  </g>
+
+  <!-- 4 Grid Cards -->
+  <!-- Card 1: Enterprise News -->
+  <g transform="translate(24, 52)">
+    <rect width="198" height="108" rx="8" fill="url(#navCardBg)" stroke="#1a2744" stroke-width="1.5" class="card-box" />
+    <rect width="198" height="4" rx="2" fill="#3b82f6" />
+    <text x="14" y="24" fill="#3b82f6" font-size="9" font-weight="700" class="mono-txt">CORE · FLAGSHIP</text>
+    <text x="14" y="44" fill="#ffffff" font-size="12" font-weight="700" class="sans-txt">Enterprise News</text>
+    <text x="14" y="62" fill="#8b949e" font-size="9.5" class="mono-txt">ASP.NET Core 8 · CQRS</text>
+    <text x="14" y="78" fill="#8b949e" font-size="9.5" class="mono-txt">5-Layer Clean Architecture</text>
+    <rect x="14" y="86" width="70" height="15" rx="3" fill="#060b18" stroke="#1a2744" />
+    <text x="49" y="97" fill="#60a5fa" font-size="8" font-weight="600" text-anchor="middle" class="mono-txt">MediatR</text>
+    <rect x="90" y="86" width="60" height="15" rx="3" fill="#060b18" stroke="#1a2744" />
+    <text x="120" y="97" fill="#10b981" font-size="8" font-weight="600" text-anchor="middle" class="mono-txt">EF Core</text>
+  </g>
+
+  <!-- Card 2: Bezrah Platform -->
+  <g transform="translate(236, 52)">
+    <rect width="198" height="108" rx="8" fill="url(#navCardBg)" stroke="#1a2744" stroke-width="1.5" />
+    <rect width="198" height="4" rx="2" fill="#10b981" />
+    <text x="14" y="24" fill="#10b981" font-size="9" font-weight="700" class="mono-txt">E-COMMERCE · RTL</text>
+    <text x="14" y="44" fill="#ffffff" font-size="12" font-weight="700" class="sans-txt">Bezrah Platform</text>
+    <text x="14" y="62" fill="#8b949e" font-size="9.5" class="mono-txt">Laravel 11 · Blade · Vanilla</text>
+    <text x="14" y="78" fill="#8b949e" font-size="9.5" class="mono-txt">Bilingual Layout Mirroring</text>
+    <rect x="14" y="86" width="70" height="15" rx="3" fill="#060b18" stroke="#1a2744" />
+    <text x="49" y="97" fill="#10b981" font-size="8" font-weight="600" text-anchor="middle" class="mono-txt">RTL Engine</text>
+    <rect x="90" y="86" width="75" height="15" rx="3" fill="#060b18" stroke="#1a2744" />
+    <text x="127" y="97" fill="#60a5fa" font-size="8" font-weight="600" text-anchor="middle" class="mono-txt">PostgreSQL</text>
+  </g>
+
+  <!-- Card 3: Study Planner -->
+  <g transform="translate(448, 52)">
+    <rect width="198" height="108" rx="8" fill="url(#navCardBg)" stroke="#1a2744" stroke-width="1.5" />
+    <rect width="198" height="4" rx="2" fill="#8b5cf6" />
+    <text x="14" y="24" fill="#8b5cf6" font-size="9" font-weight="700" class="mono-txt">PRODUCTIVITY · FSM</text>
+    <text x="14" y="44" fill="#ffffff" font-size="12" font-weight="700" class="sans-txt">Study Planner</text>
+    <text x="14" y="62" fill="#8b949e" font-size="9.5" class="mono-txt">Django 5 · Python 3.12</text>
+    <text x="14" y="78" fill="#8b949e" font-size="9.5" class="mono-txt">Pomodoro State Automata</text>
+    <rect x="14" y="86" width="70" height="15" rx="3" fill="#060b18" stroke="#1a2744" />
+    <text x="49" y="97" fill="#8b5cf6" font-size="8" font-weight="600" text-anchor="middle" class="mono-txt">CS50W Cap</text>
+    <rect x="90" y="86" width="60" height="15" rx="3" fill="#060b18" stroke="#1a2744" />
+    <text x="120" y="97" fill="#60a5fa" font-size="8" font-weight="600" text-anchor="middle" class="mono-txt">REST API</text>
+  </g>
+
+  <!-- Card 4: Command Center & Analytics -->
+  <g transform="translate(658, 52)">
+    <rect width="198" height="108" rx="8" fill="url(#navCardBg)" stroke="#1a2744" stroke-width="1.5" />
+    <rect width="198" height="4" rx="2" fill="#f59e0b" />
+    <text x="14" y="24" fill="#f59e0b" font-size="9" font-weight="700" class="mono-txt">TELEMETRY · OPS</text>
+    <text x="14" y="44" fill="#ffffff" font-size="12" font-weight="700" class="sans-txt">Command Center</text>
+    <text x="14" y="62" fill="#8b949e" font-size="9.5" class="mono-txt">GitHub Project #4 Hub</text>
+    <text x="14" y="78" fill="#8b949e" font-size="9.5" class="mono-txt">Live Telemetry Dashboard</text>
+    <rect x="14" y="86" width="70" height="15" rx="3" fill="#060b18" stroke="#1a2744" />
+    <text x="49" y="97" fill="#f59e0b" font-size="8" font-weight="600" text-anchor="middle" class="mono-txt">Project #4</text>
+    <rect x="90" y="86" width="60" height="15" rx="3" fill="#060b18" stroke="#1a2744" />
+    <text x="120" y="97" fill="#10b981" font-size="8" font-weight="600" text-anchor="middle" class="mono-txt">Analytics</text>
+  </g>
+</svg>

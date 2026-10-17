@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 140" width="100%" height="140">
+  <defs>
+    <linearGradient id="footerBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060b18" />
+      <stop offset="50%" stop-color="#0a1224" />
+      <stop offset="100%" stop-color="#060b18" />
+    </linearGradient>
+    <linearGradient id="footerLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#142038" stop-opacity="0" />
+      <stop offset="30%" stop-color="#1a2744" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="70%" stop-color="#1a2744" />
+      <stop offset="100%" stop-color="#142038" stop-opacity="0" />
+    </linearGradient>
+    <filter id="knightFilter" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <style>
+      @keyframes knightPulse {
+        0%, 100% { fill: #3b82f6; filter: drop-shadow(0 0 3px #3b82f6); }
+        50% { fill: #60a5fa; filter: drop-shadow(0 0 8px #60a5fa); }
+      }
+      @keyframes dotBlink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+      }
+      .knight-glow {
+        animation: knightPulse 3.5s ease-in-out infinite;
+      }
+      .dot-pulse {
+        animation: dotBlink 2s ease-in-out infinite;
+      }
+      .mono-txt {
+        font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
+      }
+      .sans-txt {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      }
+    </style>
+  </defs>
+
+  <!-- Frame Background -->
+  <rect x="2" y="2" width="876" height="136" rx="10" fill="url(#footerBg)" stroke="#1a2744" stroke-width="1.5" />
+
+  <!-- Top Accent Line -->
+  <line x1="20" y1="2" x2="860" y2="2" stroke="url(#footerLineGrad)" stroke-width="2" />
+
+  <!-- Center Chess Knight Emblem -->
+  <g transform="translate(440, 36)">
+    <circle cx="0" cy="0" r="22" fill="#0c1425" stroke="#1a2744" stroke-width="1.5" />
+    <path class="knight-glow" d="M -5 -11 C -5 -14 0 -16 4 -16 C 9 -16 11 -13 11 -9 C 11 -6 8 -4 6 -2 C 8 1 9 4 9 8 L -7 8 C -7 4 -4 2 -4 -2 C -7 -4 -8 -8 -5 -11 Z" transform="scale(1.1) translate(-2, 3)" />
+  </g>
+
+  <!-- Title & Identity -->
+  <g transform="translate(440, 78)">
+    <text x="0" y="0" fill="#ffffff" font-size="14" font-weight="700" letter-spacing="1.5" text-anchor="middle" class="sans-txt">OMAR EMAD AHMED</text>
+    <text x="0" y="18" fill="#60a5fa" font-size="10.5" font-weight="600" letter-spacing="1" text-anchor="middle" class="mono-txt">SOFTWARE SYSTEMS ARCHITECT · FULL-STACK SYSTEMS DESIGNER</text>
+    <text x="0" y="34" fill="#8b949e" font-size="9" text-anchor="middle" class="mono-txt">HELWAN UNIVERSITY BIS (CLASS OF 2028) · CAIRO, EGYPT (UTC+2)</text>
+  </g>
+
+  <!-- Left Verification Tag -->
+  <g transform="translate(24, 70)">
+    <circle cx="6" cy="6" r="3.5" fill="#10b981" class="dot-pulse" />
+    <text x="16" y="10" fill="#10b981" font-size="9" font-weight="600" class="mono-txt">VERIFIED ARCHITECTURE</text>
+    <text x="16" y="24" fill="#8b949e" font-size="8.5" class="mono-txt">Zero-Fabrication Guarantee</text>
+  </g>
+
+  <!-- Right Operational Tag -->
+  <g transform="translate(720, 70)">
+    <circle cx="6" cy="6" r="3.5" fill="#3b82f6" class="dot-pulse" />
+    <text x="16" y="10" fill="#60a5fa" font-size="9" font-weight="600" class="mono-txt">ENGINEERING HUB</text>
+    <text x="16" y="24" fill="#8b949e" font-size="8.5" class="mono-txt">Living ADR Documentation</text>
+  </g>
+</svg>

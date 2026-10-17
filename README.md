@@ -2,7 +2,11 @@
 
 <img src="./assets/omar-emad-banner.jpg" alt="Omar Emad Ahmed — Software Systems Architect & Full-Stack Engineer" width="100%" style="border-radius: 8px; border: 1px solid #1a2744;" />
 
-<br /><br />
+<br />
+
+<img src="./assets/animated-header-hud.svg" alt="Engineering Command Center HUD — System Status Online, Clean Architecture, CQRS, Relational Integrity, Cloud" width="100%" />
+
+<br />
 
 # Omar Emad Ahmed
 ### **Software Systems Architect · Full-Stack Engineer · Systems Designer**
@@ -18,7 +22,7 @@
 
 <br />
 
-<img src="./assets/section-divider.svg" alt="" width="500" />
+<img src="./assets/animated-section-divider.svg" alt="Section divider with chess knight emblem" width="600" />
 
 </div>
 
@@ -66,7 +70,9 @@
 | **34** | [Contact Information](#34-contact-information) | Verified email, communication standards, and timezones |
 | **35** | [Technical Documentation Navigation](#35-technical-documentation-navigation) | Full index of architecture READMEs and systems analyses |
 
----
+<div align="center">
+<img src="./assets/animated-section-divider.svg" alt="Section divider" width="600" />
+</div>
 
 ## 1. Professional Identity & Introduction
 
@@ -77,11 +83,19 @@ I am an independent software engineer and second-year Business Information Syste
 
 I treat software engineering not as an ad-hoc collection of scripts, but as a deliberate discipline of boundary enforcement, defensive validation, and strategic trade-off analysis. My work spans from C# and ASP.NET Core Clean Architecture solutions to Vue 3 and Next.js 15 web applications, backed by relational databases and containerized infrastructure.
 
----
+<div align="center">
+<img src="./assets/animated-section-divider.svg" alt="Section divider" width="600" />
+</div>
 
 ## 2. Profile Navigation & Architecture
 
 This repository (`omaremadahmed/omaremadahmed`) functions as the root hub of my engineering presence. The public portfolio is organized across three integrated tiers:
+
+<div align="center">
+<img src="./assets/portfolio-navigation-banner.svg" alt="Portfolio Architecture Hubs — Enterprise News, Bezrah Platform, Study Planner, Command Center" width="100%" />
+</div>
+
+<br />
 
 ```
 [ Tier 1: Public Profile README ] <── (You are here)
@@ -104,7 +118,9 @@ This repository (`omaremadahmed/omaremadahmed`) functions as the root hub of my 
                  └── Browser Theme: omar-github-dark-luxury.user.css
 ```
 
----
+<div align="center">
+<img src="./assets/animated-section-divider.svg" alt="Section divider" width="600" />
+</div>
 
 ## 3. Engineering Philosophy & Principles
 
@@ -118,7 +134,9 @@ My engineering philosophy is rooted in strategic discipline:
 * **Bidirectional Layout as a First-Class Citizen:** In bilingual applications, Arabic (RTL) is never an afterthought or an appended stylesheet. It is engineered from day one using CSS Logical Properties with mathematical symmetry.
 * **Pragmatic Complexity Horizon:** Premature distributed microservices introduce distributed transactions, partial failures, and network latency. I favor disciplined modular monoliths with explicit boundaries that can be decomposed into services only when organizational scale demands it.
 
----
+<div align="center">
+<img src="./assets/animated-section-divider.svg" alt="Section divider" width="600" />
+</div>
 
 ## 4. Technical Domains Overview
 
@@ -282,24 +300,24 @@ Relational (PostgreSQL, SQLite)              In-Memory (Redis)
 * **Shell Engineering:** Bash automation scripts for deployment orchestration, environment configuration, database backups, and log inspection.
 * **Process & Service Management:** Managing long-running web application processes via `systemd` unit files, daemon supervision, signal handling (`SIGTERM`/`SIGINT`), and system resource monitoring (`htop`, `netstat`, `journalctl`).
 
----
+<div align="center">
+<img src="./assets/animated-section-divider.svg" alt="Section divider" width="600" />
+</div>
 
 ## 15. DevOps & CI/CD
 
-```mermaid
-flowchart LR
-    A[Git Push / PR] --> B[GitHub Actions Runner]
-    B --> C[Lint & Formatting Check]
-    C --> D[Compile & Build (.NET / Node / Python)]
-    D --> E[Automated Unit & Contract Tests]
-    E -->|Pass| F[Docker Multi-Stage Image Build]
-    E -->|Fail| G[Pipeline Halt & Notification]
-```
+<div align="center">
+<img src="./assets/diagram-devops-pipeline.svg" alt="CI/CD & Container Orchestration Pipeline — 5-stage automated workflow: VCS, CI Runner, QA & Test, Docker Build, Runtime Deployment" width="100%" />
+</div>
+
+<br />
 
 * **Automated CI Pipelines:** GitHub Actions workflows executing automated lint checks, TypeScript strict compile tests, and unit test suites on pull requests.
 * **Build Optimization:** Caching dependency directories (`~/.nuget`, `~/.npm`, `~/.cache/pip`) to reduce CI runner execution times.
 
----
+<div align="center">
+<img src="./assets/animated-section-divider.svg" alt="Section divider" width="600" />
+</div>
 
 ## 16. Cloud Engineering
 
@@ -386,7 +404,9 @@ flowchart LR
 * **Architectural Decision Records (ADRs):** Formal documentation of key architectural choices, alternatives considered, and trade-off justifications.
 * **Single Source of Truth:** Unifying cross-system analyses and database schematics inside [`docs/SYSTEMS_ANALYSIS_HUB.md`](./docs/SYSTEMS_ANALYSIS_HUB.md).
 
----
+<div align="center">
+<img src="./assets/animated-section-divider.svg" alt="Section divider" width="600" />
+</div>
 
 ## 24. Featured Flagship Project
 
@@ -394,29 +414,9 @@ flowchart LR
 
 *An enterprise-structured editorial publication platform engineered for multi-role editorial lifecycles, auditable revision histories, and real-time newsroom synchronization.*
 
-```mermaid
-flowchart TD
-    Client[Angular 18 Newsroom Client] -->|HTTPS REST| API[ASP.NET Core 8 Web API]
-    Client -.->|WebSocket| SignalR[SignalR Real-Time Hub]
-    
-    subgraph "Application Core"
-        API --> MediatR[MediatR CQRS Pipeline]
-        MediatR --> Validation{FluentValidation Behavior}
-        Validation -->|Pass| Handlers[Command / Query Handlers]
-        Validation -->|Fail| Err[400 Validation Problem Details]
-    end
-    
-    subgraph "Domain Model"
-        Handlers --> Aggregates[Article Aggregates & Invariants]
-    end
-    
-    subgraph "Persistence & Caching"
-        Handlers --> EF[Entity Framework Core]
-        EF --> Postgres[(PostgreSQL 21 Relational Tables)]
-        Handlers -.->|Cache Aside| Redis[(Redis Distributed Cache)]
-        Handlers -.->|Broadcast Event| SignalR
-    end
-```
+<div align="center">
+<img src="./assets/diagram-clean-architecture.svg" alt="Enterprise News Platform — 5-Layer Clean Architecture & CQRS Decomposition: Presentation (Angular 18, SignalR), Web API (ASP.NET Core 8), Application (MediatR CQRS, FluentValidation), Domain (Article Aggregates), Infrastructure (EF Core, PostgreSQL, Redis)" width="100%" />
+</div>
 
 <br />
 
@@ -430,7 +430,9 @@ flowchart TD
 * **Stack:** `C#` · `ASP.NET Core 8` · `Angular 18` · `EF Core` · `PostgreSQL` · `Redis` · `SignalR` · `Docker`
 * **Full Documentation:** 📖 [Full Architecture README](./docs/ENTERPRISE_NEWS_PLATFORM_README.md) · 📊 [Cross-System Analysis](./docs/SYSTEMS_ANALYSIS_HUB.md)
 
----
+<div align="center">
+<img src="./assets/animated-section-divider.svg" alt="Section divider" width="600" />
+</div>
 
 ## 25. Additional Project Portfolio
 
@@ -489,7 +491,25 @@ flowchart TD
 </tr>
 </table>
 
----
+<br />
+
+#### 🔬 Bezrah Platform — Native Bidirectional Layout Engine
+
+<div align="center">
+<img src="./assets/diagram-bezrah-mirroring.svg" alt="Bezrah Platform — Bidirectional RTL/LTR Layout Mirroring Engine using CSS Logical Properties and Pinia state tree" width="100%" />
+</div>
+
+<br />
+
+#### 🔬 Study Planner CS50W — Pomodoro Finite-State Automaton
+
+<div align="center">
+<img src="./assets/diagram-study-planner-automata.svg" alt="Study Planner CS50W — Deterministic Pomodoro Finite-State Machine: IDLE → RUNNING (25m) ⮀ PAUSED → BREAK (5m) → LEDGER LOGGED" width="100%" />
+</div>
+
+<div align="center">
+<img src="./assets/animated-section-divider.svg" alt="Section divider" width="600" />
+</div>
 
 ## 26. Architecture Diagrams
 
@@ -670,7 +690,9 @@ To provide real, functional engineering telemetry without static graphics, I dev
 | **Project Setup & Insights Blueprint** | GitHub Projects v2 views, custom fields, and Insights chart configuration | [`docs/PROJECT_COMMAND_CENTER_SETUP.md`](./docs/PROJECT_COMMAND_CENTER_SETUP.md) |
 | **Analytics Dashboard Guide** | Live GitHub API data engine, caching architecture, and setup | [`analytics/README.md`](./analytics/README.md) |
 
----
+<div align="center">
+<img src="./assets/animated-section-divider.svg" alt="Section divider" width="600" />
+</div>
 
 <div align="center">
 
@@ -678,8 +700,8 @@ To provide real, functional engineering telemetry without static graphics, I dev
 [![Live Analytics](https://img.shields.io/badge/Analytics-Live_Telemetry_Dashboard-060b18?style=for-the-badge&logo=chartdotjs&logoColor=3b82f6)](./analytics/index.html)
 [![Systems Analysis](https://img.shields.io/badge/Architecture-Systems_Analysis_Hub-060b18?style=for-the-badge&logo=markdown&logoColor=3b82f6)](./docs/SYSTEMS_ANALYSIS_HUB.md)
 
-<br /><br />
+<br />
 
-<sub>Architected with strategic discipline. Dark Navy & Electric Blue Engineering Identity © 2026 Omar Emad Ahmed.</sub>
+<img src="./assets/animated-footer-signature.svg" alt="Omar Emad Ahmed — Software Systems Architect, Full-Stack Systems Designer, Helwan University BIS Class of 2028, Cairo Egypt" width="100%" />
 
 </div>

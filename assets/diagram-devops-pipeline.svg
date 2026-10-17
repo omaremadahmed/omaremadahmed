@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" width="100%" height="300">
+  <defs>
+    <linearGradient id="pipelineBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060b18" />
+      <stop offset="50%" stop-color="#091224" />
+      <stop offset="100%" stop-color="#060b18" />
+    </linearGradient>
+    <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c1830" />
+      <stop offset="100%" stop-color="#112244" />
+    </linearGradient>
+    <linearGradient id="nodeGradActive" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#142850" />
+      <stop offset="100%" stop-color="#1e3a8a" />
+    </linearGradient>
+    <linearGradient id="flowGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <style>
+      @keyframes pipeDash {
+        to { stroke-dashoffset: -32; }
+      }
+      @keyframes statusPulse {
+        0%, 100% { opacity: 1; filter: drop-shadow(0 0 4px #10b981); }
+        50% { opacity: 0.4; filter: none; }
+      }
+      @keyframes glowFrame {
+        0%, 100% { stroke: #1a2744; }
+        50% { stroke: #2563eb; }
+      }
+      .pipe-flow {
+        stroke-dasharray: 6 4;
+        animation: pipeDash 1.5s linear infinite;
+      }
+      .status-dot {
+        animation: statusPulse 2s ease-in-out infinite;
+      }
+      .frame-border {
+        animation: glowFrame 5s ease-in-out infinite;
+      }
+      .mono-txt {
+        font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
+      }
+      .sans-txt {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      }
+    </style>
+  </defs>
+
+  <!-- Frame Background -->
+  <rect x="2" y="2" width="876" height="296" rx="10" fill="url(#pipelineBg)" stroke="#1a2744" stroke-width="1.5" class="frame-border" />
+
+  <!-- Header Bar -->
+  <g transform="translate(24, 20)">
+    <rect width="832" height="32" rx="6" fill="#0b1426" stroke="#1a2744" />
+    <circle cx="16" cy="16" r="4.5" fill="#10b981" class="status-dot" />
+    <text x="32" y="20" fill="#ffffff" font-size="12" font-weight="700" class="sans-txt">CI/CD &amp; CONTAINER ORCHESTRATION PIPELINE // VERIFIED WORKFLOW</text>
+    <text x="680" y="20" fill="#60a5fa" font-size="10.5" font-weight="600" class="mono-txt">[ AUTOMATED GATEWAY ]</text>
+  </g>
+
+  <!-- Node 1: Source & Git -->
+  <g transform="translate(24, 76)">
+    <rect width="145" height="190" rx="8" fill="url(#nodeGrad)" stroke="#1a2744" stroke-width="1.5" />
+    <rect width="145" height="28" rx="8" fill="#111d35" />
+    <text x="72" y="18" fill="#60a5fa" font-size="10" font-weight="700" text-anchor="middle" class="mono-txt">STAGE 1: VCS</text>
+    
+    <g transform="translate(14, 42)">
+      <circle cx="12" cy="12" r="10" fill="#060b18" stroke="#3b82f6" />
+      <path d="M 8 12 L 16 12 M 12 8 L 12 16" stroke="#60a5fa" stroke-width="1.5" />
+      <text x="30" y="15" fill="#ffffff" font-size="11" font-weight="600" class="sans-txt">Git Flow</text>
+      <text x="0" y="38" fill="#8b949e" font-size="9" class="mono-txt">• Trunk-Based</text>
+      <text x="0" y="54" fill="#8b949e" font-size="9" class="mono-txt">• Conventional Commits</text>
+      <text x="0" y="70" fill="#8b949e" font-size="9" class="mono-txt">• Feature Branches</text>
+      <text x="0" y="86" fill="#8b949e" font-size="9" class="mono-txt">• Pre-commit Hooks</text>
+      <rect x="0" y="105" width="117" height="22" rx="4" fill="#060b18" stroke="#1a2744" />
+      <text x="58" y="120" fill="#3b82f6" font-size="9" font-weight="600" text-anchor="middle" class="mono-txt">PR MERGE GATE</text>
+    </g>
+  </g>
+
+  <!-- Connector 1 -> 2 -->
+  <path d="M 169 171 L 195 171" fill="none" stroke="#3b82f6" stroke-width="2" class="pipe-flow" />
+  <polygon points="195,167 203,171 195,175" fill="#3b82f6" />
+
+  <!-- Node 2: Continuous Integration -->
+  <g transform="translate(203, 76)">
+    <rect width="145" height="190" rx="8" fill="url(#nodeGrad)" stroke="#1a2744" stroke-width="1.5" />
+    <rect width="145" height="28" rx="8" fill="#111d35" />
+    <text x="72" y="18" fill="#60a5fa" font-size="10" font-weight="700" text-anchor="middle" class="mono-txt">STAGE 2: CI RUNNER</text>
+    
+    <g transform="translate(14, 42)">
+      <circle cx="12" cy="12" r="10" fill="#060b18" stroke="#3b82f6" />
+      <text x="12" y="16" fill="#60a5fa" font-size="10" font-weight="700" text-anchor="middle" class="mono-txt">GH</text>
+      <text x="30" y="15" fill="#ffffff" font-size="11" font-weight="600" class="sans-txt">GitHub Actions</text>
+      <text x="0" y="38" fill="#8b949e" font-size="9" class="mono-txt">• .NET 8 / Node.js</text>
+      <text x="0" y="54" fill="#8b949e" font-size="9" class="mono-txt">• Syntax AST Check</text>
+      <text x="0" y="70" fill="#8b949e" font-size="9" class="mono-txt">• Dependency Cache</text>
+      <text x="0" y="86" fill="#8b949e" font-size="9" class="mono-txt">• Security Audit</text>
+      <rect x="0" y="105" width="117" height="22" rx="4" fill="#060b18" stroke="#1a2744" />
+      <text x="58" y="120" fill="#10b981" font-size="9" font-weight="600" text-anchor="middle" class="mono-txt">MATRIX PASS</text>
+    </g>
+  </g>
+
+  <!-- Connector 2 -> 3 -->
+  <path d="M 348 171 L 374 171" fill="none" stroke="#3b82f6" stroke-width="2" class="pipe-flow" />
+  <polygon points="374,167 382,171 374,175" fill="#3b82f6" />
+
+  <!-- Node 3: Quality Gate & Tests -->
+  <g transform="translate(382, 76)">
+    <rect width="145" height="190" rx="8" fill="url(#nodeGradActive)" stroke="#2563eb" stroke-width="1.5" />
+    <rect width="145" height="28" rx="8" fill="#1e3a8a" />
+    <text x="72" y="18" fill="#93c5fd" font-size="10" font-weight="700" text-anchor="middle" class="mono-txt">STAGE 3: QA &amp; TEST</text>
+    
+    <g transform="translate(14, 42)">
+      <circle cx="12" cy="12" r="10" fill="#060b18" stroke="#60a5fa" />
+      <path d="M 8 12 L 11 15 L 16 9" fill="none" stroke="#10b981" stroke-width="2" />
+      <text x="30" y="15" fill="#ffffff" font-size="11" font-weight="600" class="sans-txt">Test Suite</text>
+      <text x="0" y="38" fill="#dbeafe" font-size="9" class="mono-txt">• xUnit Core Tests</text>
+      <text x="0" y="54" fill="#dbeafe" font-size="9" class="mono-txt">• MediatR Handlers</text>
+      <text x="0" y="70" fill="#dbeafe" font-size="9" class="mono-txt">• Mock UnitOfWork</text>
+      <text x="0" y="86" fill="#dbeafe" font-size="9" class="mono-txt">• FluentValidation</text>
+      <rect x="0" y="105" width="117" height="22" rx="4" fill="#0c1830" stroke="#3b82f6" />
+      <text x="58" y="120" fill="#60a5fa" font-size="9" font-weight="700" text-anchor="middle" class="mono-txt">0 DEFECTS</text>
+    </g>
+  </g>
+
+  <!-- Connector 3 -> 4 -->
+  <path d="M 527 171 L 553 171" fill="none" stroke="#3b82f6" stroke-width="2" class="pipe-flow" />
+  <polygon points="553,167 561,171 553,175" fill="#3b82f6" />
+
+  <!-- Node 4: Docker Multi-Stage Build -->
+  <g transform="translate(561, 76)">
+    <rect width="145" height="190" rx="8" fill="url(#nodeGrad)" stroke="#1a2744" stroke-width="1.5" />
+    <rect width="145" height="28" rx="8" fill="#111d35" />
+    <text x="72" y="18" fill="#60a5fa" font-size="10" font-weight="700" text-anchor="middle" class="mono-txt">STAGE 4: DOCKER</text>
+    
+    <g transform="translate(14, 42)">
+      <circle cx="12" cy="12" r="10" fill="#060b18" stroke="#3b82f6" />
+      <rect x="7" y="10" width="10" height="6" fill="#3b82f6" rx="1" />
+      <text x="30" y="15" fill="#ffffff" font-size="11" font-weight="600" class="sans-txt">Image Build</text>
+      <text x="0" y="38" fill="#8b949e" font-size="9" class="mono-txt">• Multi-Stage Build</text>
+      <text x="0" y="54" fill="#8b949e" font-size="9" class="mono-txt">• Non-Root Alpine</text>
+      <text x="0" y="70" fill="#8b949e" font-size="9" class="mono-txt">• Layer Caching</text>
+      <text x="0" y="86" fill="#8b949e" font-size="9" class="mono-txt">• Minimal Attack Surf</text>
+      <rect x="0" y="105" width="117" height="22" rx="4" fill="#060b18" stroke="#1a2744" />
+      <text x="58" y="120" fill="#3b82f6" font-size="9" font-weight="600" text-anchor="middle" class="mono-txt">OCI ARTIFACT</text>
+    </g>
+  </g>
+
+  <!-- Connector 4 -> 5 -->
+  <path d="M 706 171 L 732 171" fill="none" stroke="#3b82f6" stroke-width="2" class="pipe-flow" />
+  <polygon points="732,167 740,171 732,175" fill="#3b82f6" />
+
+  <!-- Node 5: Deployment & Runtime -->
+  <g transform="translate(740, 76)">
+    <rect width="116" height="190" rx="8" fill="url(#nodeGrad)" stroke="#1a2744" stroke-width="1.5" />
+    <rect width="116" height="28" rx="8" fill="#111d35" />
+    <text x="58" y="18" fill="#60a5fa" font-size="10" font-weight="700" text-anchor="middle" class="mono-txt">STAGE 5: RUN</text>
+    
+    <g transform="translate(10, 42)">
+      <circle cx="12" cy="12" r="10" fill="#060b18" stroke="#10b981" />
+      <circle cx="12" cy="12" r="4" fill="#10b981" />
+      <text x="28" y="15" fill="#ffffff" font-size="11" font-weight="600" class="sans-txt">Topology</text>
+      <text x="0" y="38" fill="#8b949e" font-size="9" class="mono-txt">• Compose Net</text>
+      <text x="0" y="54" fill="#8b949e" font-size="9" class="mono-txt">• Health Probes</text>
+      <text x="0" y="70" fill="#8b949e" font-size="9" class="mono-txt">• Edge Caching</text>
+      <text x="0" y="86" fill="#8b949e" font-size="9" class="mono-txt">• Zero Downtime</text>
+      <rect x="0" y="105" width="96" height="22" rx="4" fill="#060b18" stroke="#10b981" />
+      <text x="48" y="120" fill="#10b981" font-size="9" font-weight="700" text-anchor="middle" class="mono-txt">HEALTHY</text>
+    </g>
+  </g>
+</svg>
