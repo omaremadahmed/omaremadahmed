@@ -869,5 +869,108 @@
     border-color: #1a2744 !important;
     color: #e6edf3 !important;
   }
+
+  /* ==========================================================================
+     21. GitHub Packages & Container Registry Tab Styling
+     ========================================================================== */
+  /* Package list cards & container */
+  .user-packages,
+  .package-list-item,
+  div[data-testid="package-item"],
+  .Box-row:has(.octicon-package),
+  .Box-row:has(.octicon-container) {
+    background-color: #0c1425 !important;
+    border: 1px solid #1a2744 !important;
+    border-radius: 8px !important;
+    margin-bottom: 12px !important;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  .package-list-item:hover,
+  div[data-testid="package-item"]:hover,
+  .Box-row:has(.octicon-package):hover,
+  .Box-row:has(.octicon-container):hover {
+    border-color: #3b82f6 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(59, 130, 246, 0.15) !important;
+  }
+
+  /* Package Title & Link */
+  .package-list-item h3 a,
+  div[data-testid="package-item"] a,
+  .Box-row a[href*="/packages/"] {
+    color: #60a5fa !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  /* Container Cube & Package Type Icons */
+  .octicon-package,
+  .octicon-container {
+    color: #3b82f6 !important;
+    filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.4)) !important;
+  }
+
+  /* Privacy Badges & Version Tags */
+  .package-list-item .Label,
+  div[data-testid="package-item"] .Label,
+  .Box-row .Label--secondary {
+    background-color: #111d35 !important;
+    border: 1px solid #1a2744 !important;
+    color: #93c5fd !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    border-radius: 9999px !important;
+    padding: 2px 8px !important;
+  }
+
+  /* Download Counters & Metrics */
+  .package-list-item [aria-label*="download"],
+  .octicon-download,
+  .Box-row:has(.octicon-download) {
+    color: #10b981 !important;
+  }
+
+  /* Package Search & Visibility Filters */
+  .user-packages input[type="text"],
+  .user-packages details summary,
+  .subnav-search-input {
+    background-color: #0c1425 !important;
+    border: 1px solid #1a2744 !important;
+    color: #e6edf3 !important;
+  }
+
+  /* ==========================================================================
+     22. GitHub Projects V2 (Memex) Portfolio Hub Upgrades
+     ========================================================================== */
+  /* Project Header & Navigation */
+  header[aria-label="Project"],
+  [data-testid="project-header"] {
+    background-color: #081020 !important;
+    border-bottom: 1px solid #1a2744 !important;
+  }
+
+  /* Project View Tabs */
+  [role="tablist"] [role="tab"] {
+    color: #8b949e !important;
+    border-bottom: 2px solid transparent !important;
+    transition: color 0.15s ease, border-color 0.15s ease !important;
+  }
+
+  [role="tablist"] [role="tab"][aria-selected="true"] {
+    color: #60a5fa !important;
+    border-bottom-color: #3b82f6 !important;
+    font-weight: 600 !important;
+  }
+
+  /* Custom Field Pills */
+  [data-testid*="single-select-cell"],
+  .memex-field-single-select {
+    border-radius: 4px !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    padding: 2px 6px !important;
+  }
 }
+
 

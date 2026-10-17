@@ -113,9 +113,10 @@ This repository (`omaremadahmed/omaremadahmed`) functions as the root hub of my 
          │       └── PROJECT_COMMAND_CENTER_SETUP.md (Project blueprint & views)
          │
          └──► [ Tier 3: Operational Tools & Applications ]
-                 ├── GitHub Project: Software Architecture & Engineering Command Center
-                 ├── Live Analytics Dashboard: analytics/index.html
-                 └── Browser Theme: omar-github-dark-luxury.user.css
+                 ├── GitHub Project Hub: [Engineering Portfolio & Project Hub](https://github.com/users/omaremadahmed/projects/4)
+                 ├── Container Registry: [GitHub Packages](https://github.com/omaremadahmed?tab=packages) (`ghcr.io` OCI Artifacts)
+                 ├── Live Analytics Dashboard: [`analytics/index.html`](./analytics/index.html)
+                 └── Browser Theme: [`omar-github-dark-luxury.user.css`](./omar-github-dark-luxury.user.css)
 ```
 
 <div align="center">
@@ -346,6 +347,7 @@ Relational (PostgreSQL, SQLite)              In-Memory (Redis)
   ENTRYPOINT ["dotnet", "EnterpriseNews.API.dll"]
   ```
 * **Docker Compose Topologies:** Orchestrating multi-container local development environments uniting web APIs, PostgreSQL databases, Redis caches, and background worker queues with isolated internal network bridges.
+* **Container Registry & GitHub Packages (`ghcr.io`):** Managing production and development OCI container artifacts via GitHub Container Registry. Multi-stage service containers (such as the `house120-backend` enterprise base engine) are packaged with automated semantic tags, isolated runtime non-root users, and direct integration with asynchronous Celery and Redis worker pools.
 
 ---
 
